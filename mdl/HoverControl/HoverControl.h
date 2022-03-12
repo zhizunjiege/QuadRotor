@@ -27,221 +27,230 @@
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetContStateDisabled
-# define rtmGetContStateDisabled(rtm)  ((rtm)->contStateDisabled)
+#define rtmGetContStateDisabled(rtm) ((rtm)->contStateDisabled)
 #endif
 
 #ifndef rtmSetContStateDisabled
-# define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
+#define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
 #endif
 
 #ifndef rtmGetContStates
-# define rtmGetContStates(rtm)         ((rtm)->contStates)
+#define rtmGetContStates(rtm) ((rtm)->contStates)
 #endif
 
 #ifndef rtmSetContStates
-# define rtmSetContStates(rtm, val)    ((rtm)->contStates = (val))
+#define rtmSetContStates(rtm, val) ((rtm)->contStates = (val))
 #endif
 
 #ifndef rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
+#define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
 #endif
 
 #ifndef rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
+#define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
 #endif
 
 #ifndef rtmGetDerivCacheNeedsReset
-# define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
+#define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
 #endif
 
 #ifndef rtmSetDerivCacheNeedsReset
-# define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
+#define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetIntgData
-# define rtmGetIntgData(rtm)           ((rtm)->intgData)
+#define rtmGetIntgData(rtm) ((rtm)->intgData)
 #endif
 
 #ifndef rtmSetIntgData
-# define rtmSetIntgData(rtm, val)      ((rtm)->intgData = (val))
+#define rtmSetIntgData(rtm, val) ((rtm)->intgData = (val))
 #endif
 
 #ifndef rtmGetOdeF
-# define rtmGetOdeF(rtm)               ((rtm)->odeF)
+#define rtmGetOdeF(rtm) ((rtm)->odeF)
 #endif
 
 #ifndef rtmSetOdeF
-# define rtmSetOdeF(rtm, val)          ((rtm)->odeF = (val))
+#define rtmSetOdeF(rtm, val) ((rtm)->odeF = (val))
 #endif
 
 #ifndef rtmGetOdeY
-# define rtmGetOdeY(rtm)               ((rtm)->odeY)
+#define rtmGetOdeY(rtm) ((rtm)->odeY)
 #endif
 
 #ifndef rtmSetOdeY
-# define rtmSetOdeY(rtm, val)          ((rtm)->odeY = (val))
+#define rtmSetOdeY(rtm, val) ((rtm)->odeY = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateIndices
-# define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
+#define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
 #endif
 
 #ifndef rtmSetPeriodicContStateIndices
-# define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
+#define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateRanges
-# define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
+#define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
 #endif
 
 #ifndef rtmSetPeriodicContStateRanges
-# define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
+#define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
-# define rtmGetZCCacheNeedsReset(rtm)  ((rtm)->zCCacheNeedsReset)
+#define rtmGetZCCacheNeedsReset(rtm) ((rtm)->zCCacheNeedsReset)
 #endif
 
 #ifndef rtmSetZCCacheNeedsReset
-# define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
+#define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetdX
-# define rtmGetdX(rtm)                 ((rtm)->derivs)
+#define rtmGetdX(rtm) ((rtm)->derivs)
 #endif
 
 #ifndef rtmSetdX
-# define rtmSetdX(rtm, val)            ((rtm)->derivs = (val))
+#define rtmSetdX(rtm, val) ((rtm)->derivs = (val))
 #endif
 
 #ifndef rtmGetErrorStatus
-# define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
+#define rtmGetErrorStatus(rtm) ((rtm)->errorStatus)
 #endif
 
 #ifndef rtmSetErrorStatus
-# define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
+#define rtmSetErrorStatus(rtm, val) ((rtm)->errorStatus = (val))
 #endif
 
 #ifndef rtmGetStopRequested
-# define rtmGetStopRequested(rtm)      ((rtm)->Timing.stopRequestedFlag)
+#define rtmGetStopRequested(rtm) ((rtm)->Timing.stopRequestedFlag)
 #endif
 
 #ifndef rtmSetStopRequested
-# define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
+#define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
 #endif
 
 #ifndef rtmGetStopRequestedPtr
-# define rtmGetStopRequestedPtr(rtm)   (&((rtm)->Timing.stopRequestedFlag))
+#define rtmGetStopRequestedPtr(rtm) (&((rtm)->Timing.stopRequestedFlag))
 #endif
 
 #ifndef rtmGetT
-# define rtmGetT(rtm)                  (rtmGetTPtr((rtm))[0])
+#define rtmGetT(rtm) (rtmGetTPtr((rtm))[0])
 #endif
 
 #ifndef rtmGetTPtr
-# define rtmGetTPtr(rtm)               ((rtm)->Timing.t)
+#define rtmGetTPtr(rtm) ((rtm)->Timing.t)
 #endif
 
 /* Block signals (default storage) */
-typedef struct {
-  real_T NProdOut;                     /* '<S39>/NProd Out' */
-  real_T NProdOut_h;                   /* '<S87>/NProd Out' */
-  real_T NProdOut_b;                   /* '<S135>/NProd Out' */
-  real_T IProdOut;                     /* '<S33>/IProd Out' */
-  real_T IProdOut_l;                   /* '<S81>/IProd Out' */
-  real_T IProdOut_m;                   /* '<S129>/IProd Out' */
+typedef struct
+{
+  real_T NProdOut;   /* '<S39>/NProd Out' */
+  real_T NProdOut_h; /* '<S87>/NProd Out' */
+  real_T NProdOut_b; /* '<S135>/NProd Out' */
+  real_T IProdOut;   /* '<S33>/IProd Out' */
+  real_T IProdOut_l; /* '<S81>/IProd Out' */
+  real_T IProdOut_m; /* '<S129>/IProd Out' */
 } B_HoverControl_T;
 
 /* Continuous states (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S36>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S31>/Filter' */
-  real_T Integrator_CSTATE_j;          /* '<S84>/Integrator' */
-  real_T Filter_CSTATE_i;              /* '<S79>/Filter' */
-  real_T Integrator_CSTATE_l;          /* '<S132>/Integrator' */
-  real_T Filter_CSTATE_c;              /* '<S127>/Filter' */
+typedef struct
+{
+  real_T Integrator_CSTATE;   /* '<S36>/Integrator' */
+  real_T Filter_CSTATE;       /* '<S31>/Filter' */
+  real_T Integrator_CSTATE_j; /* '<S84>/Integrator' */
+  real_T Filter_CSTATE_i;     /* '<S79>/Filter' */
+  real_T Integrator_CSTATE_l; /* '<S132>/Integrator' */
+  real_T Filter_CSTATE_c;     /* '<S127>/Filter' */
 } X_HoverControl_T;
 
 /* State derivatives (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S36>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S31>/Filter' */
-  real_T Integrator_CSTATE_j;          /* '<S84>/Integrator' */
-  real_T Filter_CSTATE_i;              /* '<S79>/Filter' */
-  real_T Integrator_CSTATE_l;          /* '<S132>/Integrator' */
-  real_T Filter_CSTATE_c;              /* '<S127>/Filter' */
+typedef struct
+{
+  real_T Integrator_CSTATE;   /* '<S36>/Integrator' */
+  real_T Filter_CSTATE;       /* '<S31>/Filter' */
+  real_T Integrator_CSTATE_j; /* '<S84>/Integrator' */
+  real_T Filter_CSTATE_i;     /* '<S79>/Filter' */
+  real_T Integrator_CSTATE_l; /* '<S132>/Integrator' */
+  real_T Filter_CSTATE_c;     /* '<S127>/Filter' */
 } XDot_HoverControl_T;
 
 /* State disabled  */
-typedef struct {
-  boolean_T Integrator_CSTATE;         /* '<S36>/Integrator' */
-  boolean_T Filter_CSTATE;             /* '<S31>/Filter' */
-  boolean_T Integrator_CSTATE_j;       /* '<S84>/Integrator' */
-  boolean_T Filter_CSTATE_i;           /* '<S79>/Filter' */
-  boolean_T Integrator_CSTATE_l;       /* '<S132>/Integrator' */
-  boolean_T Filter_CSTATE_c;           /* '<S127>/Filter' */
+typedef struct
+{
+  boolean_T Integrator_CSTATE;   /* '<S36>/Integrator' */
+  boolean_T Filter_CSTATE;       /* '<S31>/Filter' */
+  boolean_T Integrator_CSTATE_j; /* '<S84>/Integrator' */
+  boolean_T Filter_CSTATE_i;     /* '<S79>/Filter' */
+  boolean_T Integrator_CSTATE_l; /* '<S132>/Integrator' */
+  boolean_T Filter_CSTATE_c;     /* '<S127>/Filter' */
 } XDis_HoverControl_T;
 
 #ifndef ODE3_INTG
 #define ODE3_INTG
 
 /* ODE3 Integration Data */
-typedef struct {
-  real_T *y;                           /* output */
-  real_T *f[3];                        /* derivatives */
+typedef struct
+{
+  real_T *y;    /* output */
+  real_T *f[3]; /* derivatives */
 } ODE3_IntgData;
 
 #endif
 
 /* External inputs (root inport signals with default storage) */
-typedef struct {
-  real_T des[3];                       /* '<Root>/des' */
-  real_T act[3];                       /* '<Root>/act' */
-  real_T k_x_pid[3];                   /* '<Root>/k_x_pid' */
-  real_T k_y_pid[3];                   /* '<Root>/k_y_pid' */
-  real_T k_z_pid[3];                   /* '<Root>/k_z_pid' */
+typedef struct
+{
+  real_T des[3];     /* '<Root>/des' */
+  real_T act[3];     /* '<Root>/act' */
+  real_T k_x_pid[3]; /* '<Root>/k_x_pid' */
+  real_T k_y_pid[3]; /* '<Root>/k_y_pid' */
+  real_T k_z_pid[3]; /* '<Root>/k_z_pid' */
 } ExtU_HoverControl_T;
 
 /* External outputs (root outports fed by signals with default storage) */
-typedef struct {
-  real_T ax;                           /* '<Root>/ax' */
-  real_T ay;                           /* '<Root>/ay' */
-  real_T az;                           /* '<Root>/az' */
+typedef struct
+{
+  real_T ax; /* '<Root>/ax' */
+  real_T ay; /* '<Root>/ay' */
+  real_T az; /* '<Root>/az' */
 } ExtY_HoverControl_T;
 
 /* Parameters (default storage) */
-struct P_HoverControl_T_ {
+struct P_HoverControl_T_
+{
   real_T XController_InitialConditionFor;
-                              /* Mask Parameter: XController_InitialConditionFor
-                               * Referenced by: '<S31>/Filter'
-                               */
+  /* Mask Parameter: XController_InitialConditionFor
+   * Referenced by: '<S31>/Filter'
+   */
   real_T YController_InitialConditionFor;
-                              /* Mask Parameter: YController_InitialConditionFor
-                               * Referenced by: '<S79>/Filter'
-                               */
+  /* Mask Parameter: YController_InitialConditionFor
+   * Referenced by: '<S79>/Filter'
+   */
   real_T ZController_InitialConditionFor;
-                              /* Mask Parameter: ZController_InitialConditionFor
-                               * Referenced by: '<S127>/Filter'
-                               */
+  /* Mask Parameter: ZController_InitialConditionFor
+   * Referenced by: '<S127>/Filter'
+   */
   real_T XController_InitialConditionF_k;
-                              /* Mask Parameter: XController_InitialConditionF_k
-                               * Referenced by: '<S36>/Integrator'
-                               */
+  /* Mask Parameter: XController_InitialConditionF_k
+   * Referenced by: '<S36>/Integrator'
+   */
   real_T YController_InitialConditionF_h;
-                              /* Mask Parameter: YController_InitialConditionF_h
-                               * Referenced by: '<S84>/Integrator'
-                               */
+  /* Mask Parameter: YController_InitialConditionF_h
+   * Referenced by: '<S84>/Integrator'
+   */
   real_T ZController_InitialConditionF_k;
-                              /* Mask Parameter: ZController_InitialConditionF_k
-                               * Referenced by: '<S132>/Integrator'
-                               */
-  real_T Constant_Value;               /* Expression: 100
-                                        * Referenced by: '<S1>/Constant'
-                                        */
+  /* Mask Parameter: ZController_InitialConditionF_k
+   * Referenced by: '<S132>/Integrator'
+   */
+  real_T Constant_Value; /* Expression: 100
+                          * Referenced by: '<S1>/Constant'
+                          */
 };
 
 /* Real-time Model Data Structure */
-struct tag_RTM_HoverControl_T {
+struct tag_RTM_HoverControl_T
+{
   const char_T *errorStatus;
   RTWSolverInfo solverInfo;
   X_HoverControl_T *contStates;
@@ -262,7 +271,8 @@ struct tag_RTM_HoverControl_T {
    * for many of the model attributes such as inputs, outputs,
    * dwork, sample times, etc.
    */
-  struct {
+  struct
+  {
     int_T numContStates;
     int_T numPeriodicContStates;
     int_T numSampTimes;
@@ -273,7 +283,8 @@ struct tag_RTM_HoverControl_T {
    * The following substructure contains information regarding
    * the timing information for the model.
    */
-  struct {
+  struct
+  {
     uint32_T clockTick0;
     uint32_T clockTickH0;
     time_T stepSize0;
@@ -287,9 +298,10 @@ struct tag_RTM_HoverControl_T {
 };
 
 /* Class declaration for model HoverControl */
-class HoverControlModelClass {
+class HoverControlModelClass
+{
   /* public data and function members */
- public:
+public:
   /* model initialize function */
   void initialize();
 
@@ -308,7 +320,7 @@ class HoverControlModelClass {
   /* Root-level structure-based inputs set method */
 
   /* Root inports set method */
-  void setExternalInputs(const ExtU_HoverControl_T* pExtU_HoverControl_T)
+  void setExternalInputs(const ExtU_HoverControl_T *pExtU_HoverControl_T)
   {
     HoverControl_U = *pExtU_HoverControl_T;
   }
@@ -316,22 +328,22 @@ class HoverControlModelClass {
   /* Root-level structure-based outputs get method */
 
   /* Root outports get method */
-  const ExtY_HoverControl_T & getExternalOutputs() const
+  const ExtY_HoverControl_T &getExternalOutputs() const
   {
     return HoverControl_Y;
   }
 
   /* Real-Time Model get method */
-  RT_MODEL_HoverControl_T * getRTM();
+  RT_MODEL_HoverControl_T *getRTM();
 
   /* private data and function members */
- private:
+private:
   /* Tunable parameters */
   static P_HoverControl_T HoverControl_P;
 
   /* Block signals */
   B_HoverControl_T HoverControl_B;
-  X_HoverControl_T HoverControl_X;     /* Block continuous states */
+  X_HoverControl_T HoverControl_X; /* Block continuous states */
 
   /* External inputs */
   ExtU_HoverControl_T HoverControl_U;
@@ -343,7 +355,7 @@ class HoverControlModelClass {
   RT_MODEL_HoverControl_T HoverControl_M;
 
   /* Continuous states update member function*/
-  void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si );
+  void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si);
 
   /* Derivatives member function */
   void HoverControl_derivatives();
@@ -513,4 +525,4 @@ class HoverControlModelClass {
  * '<S147>' : 'HoverControl/Subsystem/Z Controller/postSat Signal/Forward_Path'
  * '<S148>' : 'HoverControl/Subsystem/Z Controller/preSat Signal/Forward_Path'
  */
-#endif                                 /* RTW_HEADER_HoverControl_h_ */
+#endif /* RTW_HEADER_HoverControl_h_ */

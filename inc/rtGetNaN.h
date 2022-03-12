@@ -26,4 +26,4 @@
 extern real_T rtGetNaN(void);
 extern real32_T rtGetNaNF(void);
 
-#endif                                 /* RTW_HEADER_rtGetNaN_h_ */
+#endif /* RTW_HEADER_rtGetNaN_h_ */

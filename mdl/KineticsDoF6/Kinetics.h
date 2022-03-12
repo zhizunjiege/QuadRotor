@@ -3,77 +3,73 @@
 
 #include "armadillo.h"
 
-
-
-
-//¸ÕÌåÁù×ÔÓÉ¶È¶¯Á¦Ñ§½âËã»ùÀà
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶È¶ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //===================================
-//µØÃæ×ø±êÏµ£º£¨¼ÙÉèµØÇòÊÇ¸öÆ½°å£©
-//Ô­µã£ºµØÃæÉÏÈÎÒâÒ»µã
-//xÖá£ºµØÃæÉÏÈÎÒâ·½Ïò
-//zÖá£ºÓëµØÃæ´¹Ö±ÏòÏÂ
-//zÖá£ºx¡¢zÖá°´ÓÒÊÖ¶¨ÔòÈ·¶¨
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½Æ½ï¿½å£©
+//Ô­ï¿½ã£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+// xï¿½á£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â·½ï¿½ï¿½
+// zï¿½á£ºï¿½ï¿½ï¿½ï¿½æ´¹Ö±ï¿½ï¿½ï¿½ï¿½
+// zï¿½á£ºxï¿½ï¿½zï¿½á°´ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½È·ï¿½ï¿½
 //==================================
-//»úÌå×ø±êÏµ£º
-//Ô­µã£º·ÉÐÐÆ÷ÖÊÐÄ
-//xÖá£ºÎ»ÓÚ·ÉÐÐÆ÷¶Ô³ÆÆ½ÃæÄÚ£¬Ö¸Ïò»úÍ·
-//zÖá£º·ÉÐÐÆ÷¶Ô³ÆÆ½ÃæÄÚ£¬ÓëxÖá´¹Ö±£¬Ö¸Ïò»úÌåÏÂ·½
-//yÖá£ºx¡¢zÖá°´ÓÒÊÖ¶¨ÔòÈ·¶¨
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½
+//Ô­ï¿½ã£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// xï¿½á£ºÎ»ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô³ï¿½Æ½ï¿½ï¿½ï¿½Ú£ï¿½Ö¸ï¿½ï¿½ï¿½Í·
+// zï¿½á£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô³ï¿½Æ½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½xï¿½á´¹Ö±ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½
+// yï¿½á£ºxï¿½ï¿½zï¿½á°´ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½È·ï¿½ï¿½
 //================================
-//ËùÓÐ½Ç¶ÈÒÔ»¡¶ÈÖÆ±íÊ¾
+//ï¿½ï¿½ï¿½Ð½Ç¶ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½Æ±ï¿½Ê¾
 class KineticsBase
 {
 public:
-	KineticsBase(arma::vec Xe/*µØÃæ×ø±êÏµÄÚµÄ×ø±ê*/, arma::vec Vb/*»úÌå×ø±êÏµÄÚµÄËÙ¶È*/, arma::vec Omega/*»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½ÇËÙ¶È*/, arma::vec Euler/*»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½Ç*/);
-	//×´Ì¬³õÊ¼»¯
-	void ResetState(arma::vec Xe/*µØÃæ×ø±êÏµÄÚµÄ×ø±ê*/, arma::vec Vb/*»úÌå×ø±êÏµÄÚµÄËÙ¶È*/, arma::vec Omega/*»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½ÇËÙ¶È*/, arma::vec Euler/*»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½Ç*/);
-	//×´Ì¬¸üÐÂ
-	void UpdateState(arma::vec Fb/*»úÌå×ø±êÏµÄÚµÄºÏÁ¦*/, arma::vec Mb/*»úÌå×ø±êÏµÄÚµÄºÏÁ¦¾Ø*/, arma::mat Inertia/*¹ßÁ¿¾ØÕó*/, double Mass/*ÖÊÁ¿*/, double StepLength/*·ÂÕæ²½³¤*/);
-	//»ñÈ¡µØÃæ×ø±êÏµµ½»úÌå×ø±êÏµµÄ×ª»»¾ØÕó¡£×ó³Ëµ½µØÃæ×ø±êÏµÄÚµÄ×ø±ê£¬¿ÉµÃµ½»úÌå×ø±êÏµÄÚµÄ×ø±ê
+	KineticsBase(arma::vec Xe /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½*/, arma::vec Vb /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½Ù¶ï¿½*/, arma::vec Omega /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù¶ï¿½*/, arma::vec Euler /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½*/);
+	//×´Ì¬ï¿½ï¿½Ê¼ï¿½ï¿½
+	void ResetState(arma::vec Xe /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½*/, arma::vec Vb /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½Ù¶ï¿½*/, arma::vec Omega /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù¶ï¿½*/, arma::vec Euler /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½*/);
+	//×´Ì¬ï¿½ï¿½ï¿½ï¿½
+	void UpdateState(arma::vec Fb /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ÚµÄºï¿½ï¿½ï¿½*/, arma::vec Mb /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ÚµÄºï¿½ï¿½ï¿½ï¿½ï¿½*/, arma::mat Inertia /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/, double Mass /*ï¿½ï¿½ï¿½ï¿½*/, double StepLength /*ï¿½ï¿½ï¿½æ²½ï¿½ï¿½*/);
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ê£¬ï¿½ÉµÃµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
 	arma::mat GetReb();
+
 protected:
-	//×ËÌ¬½Ç×ª»»ÎªËÄÔªËØ¡£Euler(0)ÎªÆ«º½½Çpsi£¬Euler(1)Îª¸©Ñö½Çtheta£¬Euler(2)Îª¹ö×ª½Çphi
+	//ï¿½ï¿½Ì¬ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½Ôªï¿½Ø¡ï¿½Euler(0)ÎªÆ«ï¿½ï¿½ï¿½ï¿½psiï¿½ï¿½Euler(1)Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½thetaï¿½ï¿½Euler(2)Îªï¿½ï¿½×ªï¿½ï¿½phi
 	arma::vec EulerToQuaternion(arma::vec Euler);
-	//ËÄÔªÊý×ª»»Îª×ËÌ¬½Ç
+	//ï¿½ï¿½Ôªï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½Ì¬ï¿½ï¿½
 	arma::vec QuaternionToEuler(arma::vec Quaternion);
-	//µØÃæ×ø±êÏµÄÚµÄ×ø±ê
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
 	arma::vec Xe;
-	//»úÌå×ø±êÏµÄÚµÄËÙ¶È
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½Ù¶ï¿½
 	arma::vec Vb;
-	//»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½ÇËÙ¶È
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù¶ï¿½
 	arma::vec Omega;
-	//»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½ÇµÄËÄÔªÊý
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½Çµï¿½ï¿½ï¿½Ôªï¿½ï¿½
 	arma::vec Quaternion;
 
 private:
-	//ËÄÔªÊý×ª×ËÌ¬½ÇÐèÒªµÄº¯Êý
+	//ï¿½ï¿½Ôªï¿½ï¿½×ªï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½Òªï¿½Äºï¿½ï¿½ï¿½
 	double rt_atan2d_snf(double u0, double u1);
-	//Áú¸ñ¿âËþ·¨ÐèÒªµÄº¯Êý
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Äºï¿½ï¿½ï¿½
 	arma::vec CalX_dot(arma::vec Fb, arma::vec Mb, arma::mat Inertia, double Mass, arma::vec Omega_in, arma::vec Vb_in, arma::vec Quaternion_in);
 	arma::mat GetReb(arma::vec Euler_in);
 };
 
-class Kinetics :public KineticsBase
+class Kinetics : public KineticsBase
 {
 public:
-	Kinetics(arma::vec Xe/*µØÃæ×ø±êÏµÄÚµÄ×ø±ê*/, arma::vec Vb/*»úÌå×ø±êÏµÄÚµÄËÙ¶È*/, arma::vec Omega/*»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½ÇËÙ¶È*/, arma::vec Euler/*»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½Ç*/);
+	Kinetics(arma::vec Xe /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½*/, arma::vec Vb /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½Ù¶ï¿½*/, arma::vec Omega /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù¶ï¿½*/, arma::vec Euler /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½*/);
 
-	//»ñÈ¡µØÃæ×ø±êÏµÄÚµÄ×ø±ê
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
 	arma::vec GetXe();
-	//»ñÈ¡µØÃæ×ø±êÏµÄÚµÄËÙ¶È
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½Ù¶ï¿½
 	arma::vec GetVe();
-	//»ñÈ¡»úÌå×ø±êÏµÄÚµÄËÙ¶È
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½Ù¶ï¿½
 	arma::vec GetVb();
-	//»ñÈ¡»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½ÇËÙ¶È
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ù¶ï¿½
 	arma::vec GetOmega();
-	//»ñÈ¡»úÌå×ø±êÏµÄÚµÄ×ËÌ¬½Ç
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Úµï¿½ï¿½ï¿½Ì¬ï¿½ï¿½
 	arma::vec GetEuler();
-	//»ñÈ¡¹¥½Ç
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 	double GetAlpha();
-	//»ñÈ¡²à»¬½Ç
+	//ï¿½ï¿½È¡ï¿½à»¬ï¿½ï¿½
 	double GetBeta();
 };
-
-
 
 #endif // !_KINETICS_H_

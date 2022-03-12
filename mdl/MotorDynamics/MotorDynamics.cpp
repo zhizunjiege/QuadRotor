@@ -21,20 +21,18 @@
  * This function updates continuous states using the ODE3 fixed-step
  * solver algorithm
  */
-void MotorDynamicsModelClass::rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
+void MotorDynamicsModelClass::rt_ertODEUpdateContinuousStates(RTWSolverInfo *si)
 {
   /* Solver Matrices */
   static const real_T rt_ODE3_A[3] = {
-    1.0/2.0, 3.0/4.0, 1.0
-  };
+      1.0 / 2.0, 3.0 / 4.0, 1.0};
 
   static const real_T rt_ODE3_B[3][3] = {
-    { 1.0/2.0, 0.0, 0.0 },
+      {1.0 / 2.0, 0.0, 0.0},
 
-    { 0.0, 3.0/4.0, 0.0 },
+      {0.0, 3.0 / 4.0, 0.0},
 
-    { 2.0/9.0, 1.0/3.0, 4.0/9.0 }
-  };
+      {2.0 / 9.0, 1.0 / 3.0, 4.0 / 9.0}};
 
   time_T t = rtsiGetT(si);
   time_T tnew = rtsiGetSolverStopTime(si);
@@ -48,11 +46,11 @@ void MotorDynamicsModelClass::rt_ertODEUpdateContinuousStates(RTWSolverInfo *si 
   real_T hB[3];
   int_T i;
   int_T nXc = 4;
-  rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
+  rtsiSetSimTimeStep(si, MINOR_TIME_STEP);
 
   /* Save the state values at time t in y, we'll use x as ynew. */
-  (void) std::memcpy(y, x,
-                     static_cast<uint_T>(nXc)*sizeof(real_T));
+  (void)std::memcpy(y, x,
+                    static_cast<uint_T>(nXc) * sizeof(real_T));
 
   /* Assumes that rtsiSetT and ModelOutputs are up-to-date */
   /* f0 = f(t,y) */
@@ -61,41 +59,46 @@ void MotorDynamicsModelClass::rt_ertODEUpdateContinuousStates(RTWSolverInfo *si 
 
   /* f(:,2) = feval(odefile, t + hA(1), y + f*hB(:,1), args(:)(*)); */
   hB[0] = h * rt_ODE3_B[0][0];
-  for (i = 0; i < nXc; i++) {
-    x[i] = y[i] + (f0[i]*hB[0]);
+  for (i = 0; i < nXc; i++)
+  {
+    x[i] = y[i] + (f0[i] * hB[0]);
   }
 
-  rtsiSetT(si, t + h*rt_ODE3_A[0]);
+  rtsiSetT(si, t + h * rt_ODE3_A[0]);
   rtsiSetdX(si, f1);
   this->step();
   MotorDynamics_derivatives();
 
   /* f(:,3) = feval(odefile, t + hA(2), y + f*hB(:,2), args(:)(*)); */
-  for (i = 0; i <= 1; i++) {
+  for (i = 0; i <= 1; i++)
+  {
     hB[i] = h * rt_ODE3_B[1][i];
   }
 
-  for (i = 0; i < nXc; i++) {
-    x[i] = y[i] + (f0[i]*hB[0] + f1[i]*hB[1]);
+  for (i = 0; i < nXc; i++)
+  {
+    x[i] = y[i] + (f0[i] * hB[0] + f1[i] * hB[1]);
   }
 
-  rtsiSetT(si, t + h*rt_ODE3_A[1]);
+  rtsiSetT(si, t + h * rt_ODE3_A[1]);
   rtsiSetdX(si, f2);
   this->step();
   MotorDynamics_derivatives();
 
   /* tnew = t + hA(3);
      ynew = y + f*hB(:,3); */
-  for (i = 0; i <= 2; i++) {
+  for (i = 0; i <= 2; i++)
+  {
     hB[i] = h * rt_ODE3_B[2][i];
   }
 
-  for (i = 0; i < nXc; i++) {
-    x[i] = y[i] + (f0[i]*hB[0] + f1[i]*hB[1] + f2[i]*hB[2]);
+  for (i = 0; i < nXc; i++)
+  {
+    x[i] = y[i] + (f0[i] * hB[0] + f1[i] * hB[1] + f2[i] * hB[2]);
   }
 
   rtsiSetT(si, tnew);
-  rtsiSetSimTimeStep(si,MAJOR_TIME_STEP);
+  rtsiSetSimTimeStep(si, MAJOR_TIME_STEP);
 }
 
 /* Model step function */
@@ -109,27 +112,35 @@ void MotorDynamicsModelClass::step()
   real_T rtb_x_sat_idx_2;
   real_T rtb_x_sat_idx_3;
   boolean_T exitg1;
-  if (rtmIsMajorTimeStep((&MotorDynamics_M))) {
+  if (rtmIsMajorTimeStep((&MotorDynamics_M)))
+  {
     /* set solver stop time */
-    if (!((&MotorDynamics_M)->Timing.clockTick0+1)) {
+    if (!((&MotorDynamics_M)->Timing.clockTick0 + 1))
+    {
       rtsiSetSolverStopTime(&(&MotorDynamics_M)->solverInfo, (((&MotorDynamics_M)
-        ->Timing.clockTickH0 + 1) * (&MotorDynamics_M)->Timing.stepSize0 *
-        4294967296.0));
-    } else {
-      rtsiSetSolverStopTime(&(&MotorDynamics_M)->solverInfo, (((&MotorDynamics_M)
-        ->Timing.clockTick0 + 1) * (&MotorDynamics_M)->Timing.stepSize0 +
-        (&MotorDynamics_M)->Timing.clockTickH0 * (&MotorDynamics_M)
-        ->Timing.stepSize0 * 4294967296.0));
+                                                                   ->Timing.clockTickH0 +
+                                                               1) *
+                                                              (&MotorDynamics_M)->Timing.stepSize0 *
+                                                              4294967296.0));
     }
-  }                                    /* end MajorTimeStep */
+    else
+    {
+      rtsiSetSolverStopTime(&(&MotorDynamics_M)->solverInfo, (((&MotorDynamics_M)
+                                                                   ->Timing.clockTick0 +
+                                                               1) *
+                                                                  (&MotorDynamics_M)->Timing.stepSize0 +
+                                                              (&MotorDynamics_M)->Timing.clockTickH0 * (&MotorDynamics_M)->Timing.stepSize0 * 4294967296.0));
+    }
+  } /* end MajorTimeStep */
 
   /* Update absolute time of base rate at minor time step */
-  if (rtmIsMinorTimeStep((&MotorDynamics_M))) {
+  if (rtmIsMinorTimeStep((&MotorDynamics_M)))
+  {
     (&MotorDynamics_M)->Timing.t[0] = rtsiGetT(&(&MotorDynamics_M)->solverInfo);
   }
 
   /* Sum: '<Root>/Sum' incorporates:
-   *  Gain: '<Root>/µ¥Î»×ª»»'
+   *  Gain: '<Root>/ï¿½ï¿½Î»×ªï¿½ï¿½'
    *  Inport: '<Root>/omega_h'
    *  TransferFcn: '<Root>/Transfer Fcn'
    *  TransferFcn: '<Root>/Transfer Fcn1'
@@ -137,58 +148,72 @@ void MotorDynamicsModelClass::step()
    *  TransferFcn: '<Root>/Transfer Fcn3'
    */
   rtb_Sum[0] = MotorDynamics_P.TransferFcn_C *
-    MotorDynamics_X.TransferFcn_CSTATE * MotorDynamics_P._Gain +
-    MotorDynamics_U.omega_h;
+                   MotorDynamics_X.TransferFcn_CSTATE * MotorDynamics_P._Gain +
+               MotorDynamics_U.omega_h;
   rtb_Sum[1] = MotorDynamics_P.TransferFcn1_C *
-    MotorDynamics_X.TransferFcn1_CSTATE * MotorDynamics_P._Gain +
-    MotorDynamics_U.omega_h;
+                   MotorDynamics_X.TransferFcn1_CSTATE * MotorDynamics_P._Gain +
+               MotorDynamics_U.omega_h;
   rtb_Sum[2] = MotorDynamics_P.TransferFcn2_C *
-    MotorDynamics_X.TransferFcn2_CSTATE * MotorDynamics_P._Gain +
-    MotorDynamics_U.omega_h;
+                   MotorDynamics_X.TransferFcn2_CSTATE * MotorDynamics_P._Gain +
+               MotorDynamics_U.omega_h;
   rtb_Sum[3] = MotorDynamics_P.TransferFcn3_C *
-    MotorDynamics_X.TransferFcn3_CSTATE * MotorDynamics_P._Gain +
-    MotorDynamics_U.omega_h;
+                   MotorDynamics_X.TransferFcn3_CSTATE * MotorDynamics_P._Gain +
+               MotorDynamics_U.omega_h;
 
-  /* MATLAB Function: '<Root>/±¥ºÍº¯Êý' incorporates:
+  /* MATLAB Function: '<Root>/ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½' incorporates:
    *  Inport: '<Root>/rpm_max'
    *  Inport: '<Root>/rpm_min'
    */
   y = true;
   iy = 0;
   exitg1 = false;
-  while ((!exitg1) && (iy < 4)) {
-    if (!(rtb_Sum[iy] > MotorDynamics_U.rpm_max)) {
+  while ((!exitg1) && (iy < 4))
+  {
+    if (!(rtb_Sum[iy] > MotorDynamics_U.rpm_max))
+    {
       y = false;
       exitg1 = true;
-    } else {
+    }
+    else
+    {
       iy++;
     }
   }
 
-  if (y) {
+  if (y)
+  {
     rtb_x_sat_idx_0 = MotorDynamics_U.rpm_max;
     rtb_x_sat_idx_1 = MotorDynamics_U.rpm_max;
     rtb_x_sat_idx_2 = MotorDynamics_U.rpm_max;
     rtb_x_sat_idx_3 = MotorDynamics_U.rpm_max;
-  } else {
+  }
+  else
+  {
     y = true;
     iy = 0;
     exitg1 = false;
-    while ((!exitg1) && (iy < 4)) {
-      if (!(rtb_Sum[iy] < MotorDynamics_U.rpm_min)) {
+    while ((!exitg1) && (iy < 4))
+    {
+      if (!(rtb_Sum[iy] < MotorDynamics_U.rpm_min))
+      {
         y = false;
         exitg1 = true;
-      } else {
+      }
+      else
+      {
         iy++;
       }
     }
 
-    if (y) {
+    if (y)
+    {
       rtb_x_sat_idx_0 = MotorDynamics_U.rpm_min;
       rtb_x_sat_idx_1 = MotorDynamics_U.rpm_min;
       rtb_x_sat_idx_2 = MotorDynamics_U.rpm_min;
       rtb_x_sat_idx_3 = MotorDynamics_U.rpm_min;
-    } else {
+    }
+    else
+    {
       rtb_x_sat_idx_0 = rtb_Sum[0];
       rtb_x_sat_idx_1 = rtb_Sum[1];
       rtb_x_sat_idx_2 = rtb_Sum[2];
@@ -196,7 +221,7 @@ void MotorDynamicsModelClass::step()
     }
   }
 
-  /* End of MATLAB Function: '<Root>/±¥ºÍº¯Êý' */
+  /* End of MATLAB Function: '<Root>/ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½' */
 
   /* Math: '<Root>/Math Function' */
   rtb_x_sat_idx_0 *= rtb_x_sat_idx_0;
@@ -257,7 +282,8 @@ void MotorDynamicsModelClass::step()
    *  Product: '<Root>/Product1'
    */
   MotorDynamics_Y.M[3] = rtb_x_sat_idx_0 * MotorDynamics_U.Km;
-  if (rtmIsMajorTimeStep((&MotorDynamics_M))) {
+  if (rtmIsMajorTimeStep((&MotorDynamics_M)))
+  {
     rt_ertODEUpdateContinuousStates(&(&MotorDynamics_M)->solverInfo);
 
     /* Update absolute time for base rate */
@@ -269,12 +295,12 @@ void MotorDynamicsModelClass::step()
      * The two integers represent the low bits Timing.clockTick0 and the high bits
      * Timing.clockTickH0. When the low bit overflows to 0, the high bits increment.
      */
-    if (!(++(&MotorDynamics_M)->Timing.clockTick0)) {
+    if (!(++(&MotorDynamics_M)->Timing.clockTick0))
+    {
       ++(&MotorDynamics_M)->Timing.clockTickH0;
     }
 
-    (&MotorDynamics_M)->Timing.t[0] = rtsiGetSolverStopTime(&(&MotorDynamics_M
-      )->solverInfo);
+    (&MotorDynamics_M)->Timing.t[0] = rtsiGetSolverStopTime(&(&MotorDynamics_M)->solverInfo);
 
     {
       /* Update absolute timer for sample time: [0.01s, 0.0s] */
@@ -287,25 +313,26 @@ void MotorDynamicsModelClass::step()
        * Timing.clockTickH1. When the low bit overflows to 0, the high bits increment.
        */
       (&MotorDynamics_M)->Timing.clockTick1++;
-      if (!(&MotorDynamics_M)->Timing.clockTick1) {
+      if (!(&MotorDynamics_M)->Timing.clockTick1)
+      {
         (&MotorDynamics_M)->Timing.clockTickH1++;
       }
     }
-  }                                    /* end MajorTimeStep */
+  } /* end MajorTimeStep */
 }
 
 /* Derivatives for root system: '<Root>' */
 void MotorDynamicsModelClass::MotorDynamics_derivatives()
 {
   XDot_MotorDynamics_T *_rtXdot;
-  _rtXdot = ((XDot_MotorDynamics_T *) (&MotorDynamics_M)->derivs);
+  _rtXdot = ((XDot_MotorDynamics_T *)(&MotorDynamics_M)->derivs);
 
   /* Derivatives for TransferFcn: '<Root>/Transfer Fcn' incorporates:
    *  Inport: '<Root>/omega1'
    */
   _rtXdot->TransferFcn_CSTATE = 0.0;
   _rtXdot->TransferFcn_CSTATE += MotorDynamics_P.TransferFcn_A *
-    MotorDynamics_X.TransferFcn_CSTATE;
+                                 MotorDynamics_X.TransferFcn_CSTATE;
   _rtXdot->TransferFcn_CSTATE += MotorDynamics_U.omega1;
 
   /* Derivatives for TransferFcn: '<Root>/Transfer Fcn1' incorporates:
@@ -313,7 +340,7 @@ void MotorDynamicsModelClass::MotorDynamics_derivatives()
    */
   _rtXdot->TransferFcn1_CSTATE = 0.0;
   _rtXdot->TransferFcn1_CSTATE += MotorDynamics_P.TransferFcn1_A *
-    MotorDynamics_X.TransferFcn1_CSTATE;
+                                  MotorDynamics_X.TransferFcn1_CSTATE;
   _rtXdot->TransferFcn1_CSTATE += MotorDynamics_U.omega2;
 
   /* Derivatives for TransferFcn: '<Root>/Transfer Fcn2' incorporates:
@@ -321,7 +348,7 @@ void MotorDynamicsModelClass::MotorDynamics_derivatives()
    */
   _rtXdot->TransferFcn2_CSTATE = 0.0;
   _rtXdot->TransferFcn2_CSTATE += MotorDynamics_P.TransferFcn2_A *
-    MotorDynamics_X.TransferFcn2_CSTATE;
+                                  MotorDynamics_X.TransferFcn2_CSTATE;
   _rtXdot->TransferFcn2_CSTATE += MotorDynamics_U.omega3;
 
   /* Derivatives for TransferFcn: '<Root>/Transfer Fcn3' incorporates:
@@ -329,7 +356,7 @@ void MotorDynamicsModelClass::MotorDynamics_derivatives()
    */
   _rtXdot->TransferFcn3_CSTATE = 0.0;
   _rtXdot->TransferFcn3_CSTATE += MotorDynamics_P.TransferFcn3_A *
-    MotorDynamics_X.TransferFcn3_CSTATE;
+                                  MotorDynamics_X.TransferFcn3_CSTATE;
   _rtXdot->TransferFcn3_CSTATE += MotorDynamics_U.omega4;
 }
 
@@ -340,23 +367,21 @@ void MotorDynamicsModelClass::initialize()
   {
     /* Setup solver object */
     rtsiSetSimTimeStepPtr(&(&MotorDynamics_M)->solverInfo, &(&MotorDynamics_M)
-                          ->Timing.simTimeStep);
+                                                                ->Timing.simTimeStep);
     rtsiSetTPtr(&(&MotorDynamics_M)->solverInfo, &rtmGetTPtr((&MotorDynamics_M)));
     rtsiSetStepSizePtr(&(&MotorDynamics_M)->solverInfo, &(&MotorDynamics_M)
-                       ->Timing.stepSize0);
+                                                             ->Timing.stepSize0);
     rtsiSetdXPtr(&(&MotorDynamics_M)->solverInfo, &(&MotorDynamics_M)->derivs);
-    rtsiSetContStatesPtr(&(&MotorDynamics_M)->solverInfo, (real_T **)
-                         &(&MotorDynamics_M)->contStates);
-    rtsiSetNumContStatesPtr(&(&MotorDynamics_M)->solverInfo, &(&MotorDynamics_M
-      )->Sizes.numContStates);
+    rtsiSetContStatesPtr(&(&MotorDynamics_M)->solverInfo, (real_T **)&(&MotorDynamics_M)->contStates);
+    rtsiSetNumContStatesPtr(&(&MotorDynamics_M)->solverInfo, &(&MotorDynamics_M)->Sizes.numContStates);
     rtsiSetNumPeriodicContStatesPtr(&(&MotorDynamics_M)->solverInfo,
-      &(&MotorDynamics_M)->Sizes.numPeriodicContStates);
+                                    &(&MotorDynamics_M)->Sizes.numPeriodicContStates);
     rtsiSetPeriodicContStateIndicesPtr(&(&MotorDynamics_M)->solverInfo,
-      &(&MotorDynamics_M)->periodicContStateIndices);
+                                       &(&MotorDynamics_M)->periodicContStateIndices);
     rtsiSetPeriodicContStateRangesPtr(&(&MotorDynamics_M)->solverInfo,
-      &(&MotorDynamics_M)->periodicContStateRanges);
+                                      &(&MotorDynamics_M)->periodicContStateRanges);
     rtsiSetErrorStatusPtr(&(&MotorDynamics_M)->solverInfo, (&rtmGetErrorStatus((
-      &MotorDynamics_M))));
+                                                               &MotorDynamics_M))));
     rtsiSetRTModelPtr(&(&MotorDynamics_M)->solverInfo, (&MotorDynamics_M));
   }
 
@@ -365,10 +390,9 @@ void MotorDynamicsModelClass::initialize()
   (&MotorDynamics_M)->intgData.f[0] = (&MotorDynamics_M)->odeF[0];
   (&MotorDynamics_M)->intgData.f[1] = (&MotorDynamics_M)->odeF[1];
   (&MotorDynamics_M)->intgData.f[2] = (&MotorDynamics_M)->odeF[2];
-  (&MotorDynamics_M)->contStates = ((X_MotorDynamics_T *) &MotorDynamics_X);
-  rtsiSetSolverData(&(&MotorDynamics_M)->solverInfo, static_cast<void *>
-                    (&(&MotorDynamics_M)->intgData));
-  rtsiSetSolverName(&(&MotorDynamics_M)->solverInfo,"ode3");
+  (&MotorDynamics_M)->contStates = ((X_MotorDynamics_T *)&MotorDynamics_X);
+  rtsiSetSolverData(&(&MotorDynamics_M)->solverInfo, static_cast<void *>(&(&MotorDynamics_M)->intgData));
+  rtsiSetSolverName(&(&MotorDynamics_M)->solverInfo, "ode3");
   rtmSetTPtr((&MotorDynamics_M), &(&MotorDynamics_M)->Timing.tArray[0]);
   (&MotorDynamics_M)->Timing.stepSize0 = 0.01;
 
@@ -392,11 +416,7 @@ void MotorDynamicsModelClass::terminate()
 }
 
 /* Constructor */
-MotorDynamicsModelClass::MotorDynamicsModelClass():
-  MotorDynamics_X()
-  ,MotorDynamics_U()
-  ,MotorDynamics_Y()
-  ,MotorDynamics_M()
+MotorDynamicsModelClass::MotorDynamicsModelClass() : MotorDynamics_X(), MotorDynamics_U(), MotorDynamics_Y(), MotorDynamics_M()
 {
   /* Currently there is no constructor body generated.*/
 }
@@ -408,7 +428,7 @@ MotorDynamicsModelClass::~MotorDynamicsModelClass()
 }
 
 /* Real-Time Model get method */
-RT_MODEL_MotorDynamics_T * MotorDynamicsModelClass::getRTM()
+RT_MODEL_MotorDynamics_T *MotorDynamicsModelClass::getRTM()
 {
   return (&MotorDynamics_M);
 }

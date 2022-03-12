@@ -27,230 +27,239 @@
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetContStateDisabled
-# define rtmGetContStateDisabled(rtm)  ((rtm)->contStateDisabled)
+#define rtmGetContStateDisabled(rtm) ((rtm)->contStateDisabled)
 #endif
 
 #ifndef rtmSetContStateDisabled
-# define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
+#define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
 #endif
 
 #ifndef rtmGetContStates
-# define rtmGetContStates(rtm)         ((rtm)->contStates)
+#define rtmGetContStates(rtm) ((rtm)->contStates)
 #endif
 
 #ifndef rtmSetContStates
-# define rtmSetContStates(rtm, val)    ((rtm)->contStates = (val))
+#define rtmSetContStates(rtm, val) ((rtm)->contStates = (val))
 #endif
 
 #ifndef rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
+#define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
 #endif
 
 #ifndef rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
+#define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
 #endif
 
 #ifndef rtmGetDerivCacheNeedsReset
-# define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
+#define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
 #endif
 
 #ifndef rtmSetDerivCacheNeedsReset
-# define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
+#define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetIntgData
-# define rtmGetIntgData(rtm)           ((rtm)->intgData)
+#define rtmGetIntgData(rtm) ((rtm)->intgData)
 #endif
 
 #ifndef rtmSetIntgData
-# define rtmSetIntgData(rtm, val)      ((rtm)->intgData = (val))
+#define rtmSetIntgData(rtm, val) ((rtm)->intgData = (val))
 #endif
 
 #ifndef rtmGetOdeF
-# define rtmGetOdeF(rtm)               ((rtm)->odeF)
+#define rtmGetOdeF(rtm) ((rtm)->odeF)
 #endif
 
 #ifndef rtmSetOdeF
-# define rtmSetOdeF(rtm, val)          ((rtm)->odeF = (val))
+#define rtmSetOdeF(rtm, val) ((rtm)->odeF = (val))
 #endif
 
 #ifndef rtmGetOdeY
-# define rtmGetOdeY(rtm)               ((rtm)->odeY)
+#define rtmGetOdeY(rtm) ((rtm)->odeY)
 #endif
 
 #ifndef rtmSetOdeY
-# define rtmSetOdeY(rtm, val)          ((rtm)->odeY = (val))
+#define rtmSetOdeY(rtm, val) ((rtm)->odeY = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateIndices
-# define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
+#define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
 #endif
 
 #ifndef rtmSetPeriodicContStateIndices
-# define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
+#define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateRanges
-# define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
+#define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
 #endif
 
 #ifndef rtmSetPeriodicContStateRanges
-# define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
+#define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
-# define rtmGetZCCacheNeedsReset(rtm)  ((rtm)->zCCacheNeedsReset)
+#define rtmGetZCCacheNeedsReset(rtm) ((rtm)->zCCacheNeedsReset)
 #endif
 
 #ifndef rtmSetZCCacheNeedsReset
-# define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
+#define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetdX
-# define rtmGetdX(rtm)                 ((rtm)->derivs)
+#define rtmGetdX(rtm) ((rtm)->derivs)
 #endif
 
 #ifndef rtmSetdX
-# define rtmSetdX(rtm, val)            ((rtm)->derivs = (val))
+#define rtmSetdX(rtm, val) ((rtm)->derivs = (val))
 #endif
 
 #ifndef rtmGetErrorStatus
-# define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
+#define rtmGetErrorStatus(rtm) ((rtm)->errorStatus)
 #endif
 
 #ifndef rtmSetErrorStatus
-# define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
+#define rtmSetErrorStatus(rtm, val) ((rtm)->errorStatus = (val))
 #endif
 
 #ifndef rtmGetStopRequested
-# define rtmGetStopRequested(rtm)      ((rtm)->Timing.stopRequestedFlag)
+#define rtmGetStopRequested(rtm) ((rtm)->Timing.stopRequestedFlag)
 #endif
 
 #ifndef rtmSetStopRequested
-# define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
+#define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
 #endif
 
 #ifndef rtmGetStopRequestedPtr
-# define rtmGetStopRequestedPtr(rtm)   (&((rtm)->Timing.stopRequestedFlag))
+#define rtmGetStopRequestedPtr(rtm) (&((rtm)->Timing.stopRequestedFlag))
 #endif
 
 #ifndef rtmGetT
-# define rtmGetT(rtm)                  (rtmGetTPtr((rtm))[0])
+#define rtmGetT(rtm) (rtmGetTPtr((rtm))[0])
 #endif
 
 #ifndef rtmGetTPtr
-# define rtmGetTPtr(rtm)               ((rtm)->Timing.t)
+#define rtmGetTPtr(rtm) ((rtm)->Timing.t)
 #endif
 
 /* Block signals (default storage) */
-typedef struct {
-  real_T NProdOut;                     /* '<S87>/NProd Out' */
-  real_T NProdOut_d;                   /* '<S39>/NProd Out' */
-  real_T NProdOut_h;                   /* '<S135>/NProd Out' */
-  real_T IProdOut;                     /* '<S33>/IProd Out' */
-  real_T IProdOut_k;                   /* '<S81>/IProd Out' */
-  real_T IProdOut_g;                   /* '<S129>/IProd Out' */
+typedef struct
+{
+  real_T NProdOut;   /* '<S87>/NProd Out' */
+  real_T NProdOut_d; /* '<S39>/NProd Out' */
+  real_T NProdOut_h; /* '<S135>/NProd Out' */
+  real_T IProdOut;   /* '<S33>/IProd Out' */
+  real_T IProdOut_k; /* '<S81>/IProd Out' */
+  real_T IProdOut_g; /* '<S129>/IProd Out' */
 } B_AttitudeControl_T;
 
 /* Continuous states (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S84>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S79>/Filter' */
-  real_T Integrator_CSTATE_f;          /* '<S36>/Integrator' */
-  real_T Filter_CSTATE_f;              /* '<S31>/Filter' */
-  real_T Integrator_CSTATE_fo;         /* '<S132>/Integrator' */
-  real_T Filter_CSTATE_l;              /* '<S127>/Filter' */
+typedef struct
+{
+  real_T Integrator_CSTATE;    /* '<S84>/Integrator' */
+  real_T Filter_CSTATE;        /* '<S79>/Filter' */
+  real_T Integrator_CSTATE_f;  /* '<S36>/Integrator' */
+  real_T Filter_CSTATE_f;      /* '<S31>/Filter' */
+  real_T Integrator_CSTATE_fo; /* '<S132>/Integrator' */
+  real_T Filter_CSTATE_l;      /* '<S127>/Filter' */
 } X_AttitudeControl_T;
 
 /* State derivatives (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S84>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S79>/Filter' */
-  real_T Integrator_CSTATE_f;          /* '<S36>/Integrator' */
-  real_T Filter_CSTATE_f;              /* '<S31>/Filter' */
-  real_T Integrator_CSTATE_fo;         /* '<S132>/Integrator' */
-  real_T Filter_CSTATE_l;              /* '<S127>/Filter' */
+typedef struct
+{
+  real_T Integrator_CSTATE;    /* '<S84>/Integrator' */
+  real_T Filter_CSTATE;        /* '<S79>/Filter' */
+  real_T Integrator_CSTATE_f;  /* '<S36>/Integrator' */
+  real_T Filter_CSTATE_f;      /* '<S31>/Filter' */
+  real_T Integrator_CSTATE_fo; /* '<S132>/Integrator' */
+  real_T Filter_CSTATE_l;      /* '<S127>/Filter' */
 } XDot_AttitudeControl_T;
 
 /* State disabled  */
-typedef struct {
-  boolean_T Integrator_CSTATE;         /* '<S84>/Integrator' */
-  boolean_T Filter_CSTATE;             /* '<S79>/Filter' */
-  boolean_T Integrator_CSTATE_f;       /* '<S36>/Integrator' */
-  boolean_T Filter_CSTATE_f;           /* '<S31>/Filter' */
-  boolean_T Integrator_CSTATE_fo;      /* '<S132>/Integrator' */
-  boolean_T Filter_CSTATE_l;           /* '<S127>/Filter' */
+typedef struct
+{
+  boolean_T Integrator_CSTATE;    /* '<S84>/Integrator' */
+  boolean_T Filter_CSTATE;        /* '<S79>/Filter' */
+  boolean_T Integrator_CSTATE_f;  /* '<S36>/Integrator' */
+  boolean_T Filter_CSTATE_f;      /* '<S31>/Filter' */
+  boolean_T Integrator_CSTATE_fo; /* '<S132>/Integrator' */
+  boolean_T Filter_CSTATE_l;      /* '<S127>/Filter' */
 } XDis_AttitudeControl_T;
 
 #ifndef ODE3_INTG
 #define ODE3_INTG
 
 /* ODE3 Integration Data */
-typedef struct {
-  real_T *y;                           /* output */
-  real_T *f[3];                        /* derivatives */
+typedef struct
+{
+  real_T *y;    /* output */
+  real_T *f[3]; /* derivatives */
 } ODE3_IntgData;
 
 #endif
 
 /* External inputs (root inport signals with default storage) */
-typedef struct {
-  real_T delta_omega_F;                /* '<Root>/delta_omega_F' */
-  real_T des_Roll;                     /* '<Root>/des_Roll' */
-  real_T des_Pitch;                    /* '<Root>/des_Pitch' */
-  real_T des_Yaw;                      /* '<Root>/des_Yaw' */
-  real_T act_Roll;                     /* '<Root>/act_Roll' */
-  real_T act_Pitch;                    /* '<Root>/act_Pitch' */
-  real_T act_Yaw;                      /* '<Root>/act_Yaw' */
-  real_T k_roll_pid[3];                /* '<Root>/k_roll_pid' */
-  real_T k_pitch_pid[3];               /* '<Root>/k_pitch_pid' */
-  real_T k_yaw_pid[3];                 /* '<Root>/k_yaw_pid' */
+typedef struct
+{
+  real_T delta_omega_F;  /* '<Root>/delta_omega_F' */
+  real_T des_Roll;       /* '<Root>/des_Roll' */
+  real_T des_Pitch;      /* '<Root>/des_Pitch' */
+  real_T des_Yaw;        /* '<Root>/des_Yaw' */
+  real_T act_Roll;       /* '<Root>/act_Roll' */
+  real_T act_Pitch;      /* '<Root>/act_Pitch' */
+  real_T act_Yaw;        /* '<Root>/act_Yaw' */
+  real_T k_roll_pid[3];  /* '<Root>/k_roll_pid' */
+  real_T k_pitch_pid[3]; /* '<Root>/k_pitch_pid' */
+  real_T k_yaw_pid[3];   /* '<Root>/k_yaw_pid' */
 } ExtU_AttitudeControl_T;
 
 /* External outputs (root outports fed by signals with default storage) */
-typedef struct {
-  real_T omega1;                       /* '<Root>/omega1' */
-  real_T omega2;                       /* '<Root>/omega2' */
-  real_T omega3;                       /* '<Root>/omega3' */
-  real_T omega4;                       /* '<Root>/omega4' */
+typedef struct
+{
+  real_T omega1; /* '<Root>/omega1' */
+  real_T omega2; /* '<Root>/omega2' */
+  real_T omega3; /* '<Root>/omega3' */
+  real_T omega4; /* '<Root>/omega4' */
 } ExtY_AttitudeControl_T;
 
 /* Parameters (default storage) */
-struct P_AttitudeControl_T_ {
+struct P_AttitudeControl_T_
+{
   real_T RollController_InitialCondition;
-                              /* Mask Parameter: RollController_InitialCondition
-                               * Referenced by: '<S79>/Filter'
-                               */
+  /* Mask Parameter: RollController_InitialCondition
+   * Referenced by: '<S79>/Filter'
+   */
   real_T PitchController_InitialConditio;
-                              /* Mask Parameter: PitchController_InitialConditio
-                               * Referenced by: '<S31>/Filter'
-                               */
+  /* Mask Parameter: PitchController_InitialConditio
+   * Referenced by: '<S31>/Filter'
+   */
   real_T YawController_InitialConditionF;
-                              /* Mask Parameter: YawController_InitialConditionF
-                               * Referenced by: '<S127>/Filter'
-                               */
+  /* Mask Parameter: YawController_InitialConditionF
+   * Referenced by: '<S127>/Filter'
+   */
   real_T RollController_InitialConditi_f;
-                              /* Mask Parameter: RollController_InitialConditi_f
-                               * Referenced by: '<S84>/Integrator'
-                               */
+  /* Mask Parameter: RollController_InitialConditi_f
+   * Referenced by: '<S84>/Integrator'
+   */
   real_T PitchController_InitialCondit_d;
-                              /* Mask Parameter: PitchController_InitialCondit_d
-                               * Referenced by: '<S36>/Integrator'
-                               */
+  /* Mask Parameter: PitchController_InitialCondit_d
+   * Referenced by: '<S36>/Integrator'
+   */
   real_T YawController_InitialConditio_h;
-                              /* Mask Parameter: YawController_InitialConditio_h
-                               * Referenced by: '<S132>/Integrator'
-                               */
-  real_T Constant_Value;               /* Expression: 100
-                                        * Referenced by: '<S1>/Constant'
-                                        */
-  real_T Gain_Gain[16];     /* Expression: [1 0 1 -1;1 1 0 1;1 0 -1 -1;1 -1 0 1]
-                             * Referenced by: '<Root>/Gain'
-                             */
+  /* Mask Parameter: YawController_InitialConditio_h
+   * Referenced by: '<S132>/Integrator'
+   */
+  real_T Constant_Value; /* Expression: 100
+                          * Referenced by: '<S1>/Constant'
+                          */
+  real_T Gain_Gain[16];  /* Expression: [1 0 1 -1;1 1 0 1;1 0 -1 -1;1 -1 0 1]
+                          * Referenced by: '<Root>/Gain'
+                          */
 };
 
 /* Real-time Model Data Structure */
-struct tag_RTM_AttitudeControl_T {
+struct tag_RTM_AttitudeControl_T
+{
   const char_T *errorStatus;
   RTWSolverInfo solverInfo;
   X_AttitudeControl_T *contStates;
@@ -271,7 +280,8 @@ struct tag_RTM_AttitudeControl_T {
    * for many of the model attributes such as inputs, outputs,
    * dwork, sample times, etc.
    */
-  struct {
+  struct
+  {
     int_T numContStates;
     int_T numPeriodicContStates;
     int_T numSampTimes;
@@ -282,7 +292,8 @@ struct tag_RTM_AttitudeControl_T {
    * The following substructure contains information regarding
    * the timing information for the model.
    */
-  struct {
+  struct
+  {
     uint32_T clockTick0;
     uint32_T clockTickH0;
     time_T stepSize0;
@@ -296,9 +307,10 @@ struct tag_RTM_AttitudeControl_T {
 };
 
 /* Class declaration for model AttitudeControl */
-class AttitudeControlModelClass {
+class AttitudeControlModelClass
+{
   /* public data and function members */
- public:
+public:
   /* model initialize function */
   void initialize();
 
@@ -317,7 +329,7 @@ class AttitudeControlModelClass {
   /* Root-level structure-based inputs set method */
 
   /* Root inports set method */
-  void setExternalInputs(const ExtU_AttitudeControl_T* pExtU_AttitudeControl_T)
+  void setExternalInputs(const ExtU_AttitudeControl_T *pExtU_AttitudeControl_T)
   {
     AttitudeControl_U = *pExtU_AttitudeControl_T;
   }
@@ -325,22 +337,22 @@ class AttitudeControlModelClass {
   /* Root-level structure-based outputs get method */
 
   /* Root outports get method */
-  const ExtY_AttitudeControl_T & getExternalOutputs() const
+  const ExtY_AttitudeControl_T &getExternalOutputs() const
   {
     return AttitudeControl_Y;
   }
 
   /* Real-Time Model get method */
-  RT_MODEL_AttitudeControl_T * getRTM();
+  RT_MODEL_AttitudeControl_T *getRTM();
 
   /* private data and function members */
- private:
+private:
   /* Tunable parameters */
   static P_AttitudeControl_T AttitudeControl_P;
 
   /* Block signals */
   B_AttitudeControl_T AttitudeControl_B;
-  X_AttitudeControl_T AttitudeControl_X;/* Block continuous states */
+  X_AttitudeControl_T AttitudeControl_X; /* Block continuous states */
 
   /* External inputs */
   ExtU_AttitudeControl_T AttitudeControl_U;
@@ -352,7 +364,7 @@ class AttitudeControlModelClass {
   RT_MODEL_AttitudeControl_T AttitudeControl_M;
 
   /* Continuous states update member function*/
-  void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si );
+  void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si);
 
   /* Derivatives member function */
   void AttitudeControl_derivatives();
@@ -522,4 +534,4 @@ class AttitudeControlModelClass {
  * '<S147>' : 'AttitudeControl/Subsystem/Yaw Controller/postSat Signal/Forward_Path'
  * '<S148>' : 'AttitudeControl/Subsystem/Yaw Controller/preSat Signal/Forward_Path'
  */
-#endif                                 /* RTW_HEADER_AttitudeControl_h_ */
+#endif /* RTW_HEADER_AttitudeControl_h_ */

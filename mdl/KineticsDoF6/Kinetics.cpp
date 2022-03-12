@@ -5,7 +5,7 @@ KineticsBase::KineticsBase(arma::vec Xe, arma::vec Vb, arma::vec Omega, arma::ve
 {
 	ResetState(Xe, Vb, Omega, Euler);
 }
-//×´Ì¬³õÊ¼»¯
+//×´Ì¬ï¿½ï¿½Ê¼ï¿½ï¿½
 void KineticsBase::ResetState(arma::vec Xe_in, arma::vec Vb_in, arma::vec Omega_in, arma::vec Euler_in)
 {
 	Xe = Xe_in;
@@ -13,11 +13,11 @@ void KineticsBase::ResetState(arma::vec Xe_in, arma::vec Vb_in, arma::vec Omega_
 	Omega = Omega_in;
 	Quaternion = EulerToQuaternion(Euler_in);
 }
-//×´Ì¬¸üÐÂ
+//×´Ì¬ï¿½ï¿½ï¿½ï¿½
 void KineticsBase::UpdateState(arma::vec Fb, arma::vec Mb, arma::mat Inertia, double Mass, double StepLength)
 {
 
-	//Áú¸ñ¿âËþ·¨±äÁ¿
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	arma::vec X1(13);
 	X1.rows(0, 2) = Omega;
 	X1.rows(3, 5) = Vb;
@@ -25,7 +25,7 @@ void KineticsBase::UpdateState(arma::vec Fb, arma::vec Mb, arma::mat Inertia, do
 	X1.rows(10, 12) = Xe;
 
 
-	//ËÄ½×Áú¸ñ¿âËþ·¨
+	//ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	arma::vec K1 = CalX_dot(Fb, Mb, Inertia, Mass, X1.rows(0, 2), X1.rows(3, 5), X1.rows(6, 9));
 	
 	arma::vec X2 = X1 + K1 * StepLength*0.5;
@@ -49,15 +49,15 @@ void KineticsBase::UpdateState(arma::vec Fb, arma::vec Mb, arma::mat Inertia, do
 
 arma::vec KineticsBase::CalX_dot(arma::vec Fb,arma::vec Mb,arma::mat Inertia,double Mass, arma::vec Omega_in, arma::vec Vb_in,arma::vec Quaternion_in)
 {
-	//Vb±ä»¯ÂÊ
+	//Vbï¿½ä»¯ï¿½ï¿½
 	arma::vec Vb_dot = Fb / Mass - arma::cross(Omega_in, Vb_in);
 
-	//Omega±ä»¯ÂÊ
+	//Omegaï¿½ä»¯ï¿½ï¿½
 	arma::vec Omega_dot = arma::inv(Inertia)*(Mb - arma::cross(Omega_in, (Inertia*Omega_in)));
 
-	//Quaternion±ä»¯ÂÊ
+	//Quaternionï¿½ä»¯ï¿½ï¿½
 	arma::vec Quaternion_dot(4);
-	//ÒÔÏÂ¼ÆËã¹«Ê½´ÓMatlabµ¼³ö
+	//ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ã¹«Ê½ï¿½ï¿½Matlabï¿½ï¿½ï¿½ï¿½
 	Quaternion_dot[0] = ((-Omega_in[0] * Quaternion_in[1] +
 		-Omega_in[1] * Quaternion_in[2]) + -Omega_in[2] *
 		Quaternion_in[3]) * 0.5;
@@ -71,8 +71,8 @@ arma::vec KineticsBase::CalX_dot(arma::vec Fb,arma::vec Mb,arma::mat Inertia,dou
 		Omega_in[1] * Quaternion_in[1]) + -Omega_in[0] *
 		Quaternion_in[2]) * 0.5;
 
-	//Xe±ä»¯ÂÊ
-	arma::vec Xe_dot = GetReb(QuaternionToEuler(Quaternion_in)).t()*Vb_in;//RebÊÇÕý½»¾ØÕó£¬Òò´Ë×ªÖÃ¾ÍÊÇÈ¡Äæ
+	//Xeï¿½ä»¯ï¿½ï¿½
+	arma::vec Xe_dot = GetReb(QuaternionToEuler(Quaternion_in)).t()*Vb_in;//Rebï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ã¾ï¿½ï¿½ï¿½È¡ï¿½ï¿½
 
 	arma::vec X_dot(13);
 	X_dot.rows(0, 2) = Vb_dot;
@@ -85,17 +85,17 @@ arma::vec KineticsBase::CalX_dot(arma::vec Fb,arma::vec Mb,arma::mat Inertia,dou
 
 arma::vec KineticsBase::EulerToQuaternion(arma::vec Euler)
 {
-	//Æ«º½½Ç
+	//Æ«ï¿½ï¿½ï¿½ï¿½
 	double psi = Euler(0);
-	//¸©Ñö½Ç
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	double theta = Euler(1);
-	//¹ö×ª½Ç
+	//ï¿½ï¿½×ªï¿½ï¿½
 	double phi = Euler(2);
-	//²ÉÓÃËÄÔªÊýÇó½â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½
 
 	arma::vec Quaternion(4);
 
-	//ÒÔÏÂ´úÂëÊÇ´ÓMatlabµ¼³ö²¢ÐÞ¸ÄµÄ
+	//ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½Ç´ï¿½Matlabï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Äµï¿½
 	double Q_tmp;
 	double Q_tmp_0;
 	double rtb_sincos_o1;
@@ -145,7 +145,7 @@ arma::vec KineticsBase::QuaternionToEuler(arma::vec Quaternion)
 	double q2 = Quaternion(2);
 	double q3 = Quaternion(3);
 
-	//Ò»ÏÂ´úÂë´ÓMatlabµ¼³ö²¢ÐÞ¸Ä
+	//Ò»ï¿½Â´ï¿½ï¿½ï¿½ï¿½Matlabï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
 	double Output_tmp;
 	double Output_tmp_0;
 	double Output_tmp_1;
@@ -280,7 +280,7 @@ arma::mat KineticsBase::GetReb(arma::vec Euler_in)
 	Rbe(2, 2) = rtb_sincos_o2_idx_1 * rtb_sincos_o2_idx_2;
 
 
-	return Rbe.t();//RbeÊÇÕý½»¾ØÕó£¬Òò´Ë×ªÖÃ¾ÍÊÇÄæ
+	return Rbe.t();//Rbeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 
@@ -290,15 +290,15 @@ Kinetics::Kinetics(arma::vec Xe, arma::vec Vb, arma::vec Omega, arma::vec Euler)
 	
 }
 
-//»ñÈ¡µØÃæ×ø±êÏµ×ø±ê
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½
 arma::vec Kinetics::GetXe()
 {
 	return Xe;
 }
-//»ñÈ¡µØÃæ×ø±êÏµËÙ¶È
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ù¶ï¿½
 arma::vec Kinetics::GetVe()
 {
-	return  GetReb().t()*Vb;//RebÊÇÕý½»¾ØÕó£¬Òò´Ë×ªÖÃ¾ÍÊÇÈ¡Äæ
+	return  GetReb().t()*Vb;//Rebï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ã¾ï¿½ï¿½ï¿½È¡ï¿½ï¿½
 }
 arma::vec Kinetics::GetVb()
 {

@@ -27,4 +27,4 @@ typedef struct P_MotorDynamics_T_ P_MotorDynamics_T;
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_MotorDynamics_T RT_MODEL_MotorDynamics_T;
 
-#endif                                 /* RTW_HEADER_MotorDynamics_types_h_ */
+#endif /* RTW_HEADER_MotorDynamics_types_h_ */

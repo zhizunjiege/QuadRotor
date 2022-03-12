@@ -21,18 +21,18 @@
 
 /* Private macros used by the generated code to access rtModel */
 #ifndef rtmIsMajorTimeStep
-# define rtmIsMajorTimeStep(rtm)       (((rtm)->Timing.simTimeStep) == MAJOR_TIME_STEP)
+#define rtmIsMajorTimeStep(rtm) (((rtm)->Timing.simTimeStep) == MAJOR_TIME_STEP)
 #endif
 
 #ifndef rtmIsMinorTimeStep
-# define rtmIsMinorTimeStep(rtm)       (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
+#define rtmIsMinorTimeStep(rtm) (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
 #endif
 
 #ifndef rtmSetTPtr
-# define rtmSetTPtr(rtm, val)          ((rtm)->Timing.t = (val))
+#define rtmSetTPtr(rtm, val) ((rtm)->Timing.t = (val))
 #endif
 
 /* private model entry point functions */
 extern void HoverControl_derivatives();
 
-#endif                                 /* RTW_HEADER_HoverControl_private_h_ */
+#endif /* RTW_HEADER_HoverControl_private_h_ */

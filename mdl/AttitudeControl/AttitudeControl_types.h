@@ -27,4 +27,4 @@ typedef struct P_AttitudeControl_T_ P_AttitudeControl_T;
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_AttitudeControl_T RT_MODEL_AttitudeControl_T;
 
-#endif                                 /* RTW_HEADER_AttitudeControl_types_h_ */
+#endif /* RTW_HEADER_AttitudeControl_types_h_ */

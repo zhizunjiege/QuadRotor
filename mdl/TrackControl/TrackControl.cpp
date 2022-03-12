@@ -107,7 +107,7 @@ uint32_T MWDSP_EPH_R_D(real_T evt, uint32_T *sta)
   int32_T lastzcevent;
   uint32_T previousState;
 
-  /* S-Function (sdspcount2): '<Root>/º½¶Î¼ÆÊýÆ÷' */
+  /* S-Function (sdspcount2): '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
   /* Detect rising edge events */
   previousState = *sta;
   retVal = 0U;
@@ -171,11 +171,11 @@ uint32_T MWDSP_EPH_R_D(real_T evt, uint32_T *sta)
     *sta = static_cast<uint32_T>(newState);
   }
 
-  /* End of S-Function (sdspcount2): '<Root>/º½¶Î¼ÆÊýÆ÷' */
+  /* End of S-Function (sdspcount2): '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
   return retVal;
 }
 
-/* Function for MATLAB Function: '<Root>/ÊýÑ§¼ÆËã' */
+/* Function for MATLAB Function: '<Root>/ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½' */
 real_T TrackControlModelClass::TrackControl_norm(const real_T x[3])
 {
   real_T y;
@@ -253,11 +253,11 @@ void TrackControlModelClass::step()
   }
 
   if (rtmIsMajorTimeStep((&TrackControl_M))) {
-    /* Delay: '<Root>/Ò»½×ÑÓ³Ù' */
+    /* Delay: '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½' */
     TrackControl_B.u = TrackControl_DW._DSTATE;
 
-    /* S-Function (sdspcount2): '<Root>/º½¶Î¼ÆÊýÆ÷' incorporates:
-     *  Constant: '<Root>/¸´Î»'
+    /* S-Function (sdspcount2): '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' incorporates:
+     *  Constant: '<Root>/ï¿½ï¿½Î»'
      */
     if (MWDSP_EPH_R_D(TrackControl_P._Value, &TrackControl_DW._RstEphState) !=
         0U) {
@@ -275,10 +275,10 @@ void TrackControlModelClass::step()
 
     TrackControl_B.u_g = TrackControl_DW._Count;
 
-    /* End of S-Function (sdspcount2): '<Root>/º½¶Î¼ÆÊýÆ÷' */
+    /* End of S-Function (sdspcount2): '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
   }
 
-  /* MATLAB Function: '<Root>/Éú³ÉË÷Òý' incorporates:
+  /* MATLAB Function: '<Root>/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' incorporates:
    *  Inport: '<Root>/N'
    */
   if (TrackControl_B.u_g >= TrackControl_U.N - 1.0) {
@@ -293,9 +293,9 @@ void TrackControlModelClass::step()
     rtb_idx0 = TrackControl_B.u_g;
   }
 
-  /* End of MATLAB Function: '<Root>/Éú³ÉË÷Òý' */
+  /* End of MATLAB Function: '<Root>/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' */
 
-  /* MATLAB Function: '<Root>/ÊýÑ§¼ÆËã' incorporates:
+  /* MATLAB Function: '<Root>/ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½' incorporates:
    *  Inport: '<Root>/V'
    *  Inport: '<Root>/X'
    *  Inport: '<Root>/Y'
@@ -380,7 +380,7 @@ void TrackControlModelClass::step()
     ti01_idx_1) + (TrackControl_U.position[2] - traces[rtb_idx1_tmp + 199]) *
     ti01_idx_2 >= 0.0);
 
-  /* End of MATLAB Function: '<Root>/ÊýÑ§¼ÆËã' */
+  /* End of MATLAB Function: '<Root>/ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½' */
 
   /* Integrator: '<S185>/Integrator' incorporates:
    *  Integrator: '<S180>/Filter'
@@ -754,7 +754,7 @@ void TrackControlModelClass::step()
   TrackControl_B.IProdOut_n = rtb_ect_idx_2 * TrackControl_U.ect_z_pid[1];
   if (rtmIsMajorTimeStep((&TrackControl_M))) {
     if (rtmIsMajorTimeStep((&TrackControl_M))) {
-      /* Update for Delay: '<Root>/Ò»½×ÑÓ³Ù' */
+      /* Update for Delay: '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½' */
       TrackControl_DW._DSTATE = TrackControl_B.trigger;
     }
   }                                    /* end MajorTimeStep */
@@ -894,10 +894,10 @@ void TrackControlModelClass::initialize()
   TrackControl_PrevZCX.Integrator_Reset_ZCE_p = UNINITIALIZED_ZCSIG;
   TrackControl_PrevZCX.Filter_Reset_ZCE_o = UNINITIALIZED_ZCSIG;
 
-  /* InitializeConditions for Delay: '<Root>/Ò»½×ÑÓ³Ù' */
+  /* InitializeConditions for Delay: '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½' */
   TrackControl_DW._DSTATE = TrackControl_P._InitialCondition;
 
-  /* InitializeConditions for S-Function (sdspcount2): '<Root>/º½¶Î¼ÆÊýÆ÷' */
+  /* InitializeConditions for S-Function (sdspcount2): '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
   TrackControl_DW._ClkEphState = 5U;
   TrackControl_DW._RstEphState = 5U;
   TrackControl_DW._Count = TrackControl_P._InitialCount;

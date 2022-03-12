@@ -18,4 +18,4 @@
 #define RTW_HEADER_PositionControl_private_h_
 #include "rtwtypes.h"
 #include "multiword_types.h"
-#endif                               /* RTW_HEADER_PositionControl_private_h_ */
+#endif /* RTW_HEADER_PositionControl_private_h_ */

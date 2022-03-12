@@ -91,17 +91,17 @@ P_TrackControl_T TrackControlModelClass::TrackControl_P = {
   0.0,
 
   /* Mask Parameter: _InitialCount
-   * Referenced by: '<Root>/º½¶Î¼ÆÊýÆ÷'
+   * Referenced by: '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½'
    */
   1U,
 
   /* Expression: 0.0
-   * Referenced by: '<Root>/Ò»½×ÑÓ³Ù'
+   * Referenced by: '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½'
    */
   0.0,
 
   /* Expression: 1
-   * Referenced by: '<Root>/¸´Î»'
+   * Referenced by: '<Root>/ï¿½ï¿½Î»'
    */
   1.0,
 

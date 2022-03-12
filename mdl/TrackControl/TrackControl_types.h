@@ -27,4 +27,4 @@ typedef struct P_TrackControl_T_ P_TrackControl_T;
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_TrackControl_T RT_MODEL_TrackControl_T;
 
-#endif                                 /* RTW_HEADER_TrackControl_types_h_ */
+#endif /* RTW_HEADER_TrackControl_types_h_ */

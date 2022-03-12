@@ -22,4 +22,4 @@
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_PositionControl_T RT_MODEL_PositionControl_T;
 
-#endif                                 /* RTW_HEADER_PositionControl_types_h_ */
+#endif /* RTW_HEADER_PositionControl_types_h_ */

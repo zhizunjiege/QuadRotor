@@ -28,4 +28,4 @@ extern real32_T rtGetInfF(void);
 extern real_T rtGetMinusInf(void);
 extern real32_T rtGetMinusInfF(void);
 
-#endif                                 /* RTW_HEADER_rtGetInf_h_ */
+#endif /* RTW_HEADER_rtGetInf_h_ */

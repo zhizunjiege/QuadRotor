@@ -31,322 +31,333 @@
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetContStateDisabled
-# define rtmGetContStateDisabled(rtm)  ((rtm)->contStateDisabled)
+#define rtmGetContStateDisabled(rtm) ((rtm)->contStateDisabled)
 #endif
 
 #ifndef rtmSetContStateDisabled
-# define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
+#define rtmSetContStateDisabled(rtm, val) ((rtm)->contStateDisabled = (val))
 #endif
 
 #ifndef rtmGetContStates
-# define rtmGetContStates(rtm)         ((rtm)->contStates)
+#define rtmGetContStates(rtm) ((rtm)->contStates)
 #endif
 
 #ifndef rtmSetContStates
-# define rtmSetContStates(rtm, val)    ((rtm)->contStates = (val))
+#define rtmSetContStates(rtm, val) ((rtm)->contStates = (val))
 #endif
 
 #ifndef rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
+#define rtmGetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm) ((rtm)->CTOutputIncnstWithState)
 #endif
 
 #ifndef rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag
-# define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
+#define rtmSetContTimeOutputInconsistentWithStateAtMajorStepFlag(rtm, val) ((rtm)->CTOutputIncnstWithState = (val))
 #endif
 
 #ifndef rtmGetDerivCacheNeedsReset
-# define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
+#define rtmGetDerivCacheNeedsReset(rtm) ((rtm)->derivCacheNeedsReset)
 #endif
 
 #ifndef rtmSetDerivCacheNeedsReset
-# define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
+#define rtmSetDerivCacheNeedsReset(rtm, val) ((rtm)->derivCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetIntgData
-# define rtmGetIntgData(rtm)           ((rtm)->intgData)
+#define rtmGetIntgData(rtm) ((rtm)->intgData)
 #endif
 
 #ifndef rtmSetIntgData
-# define rtmSetIntgData(rtm, val)      ((rtm)->intgData = (val))
+#define rtmSetIntgData(rtm, val) ((rtm)->intgData = (val))
 #endif
 
 #ifndef rtmGetOdeF
-# define rtmGetOdeF(rtm)               ((rtm)->odeF)
+#define rtmGetOdeF(rtm) ((rtm)->odeF)
 #endif
 
 #ifndef rtmSetOdeF
-# define rtmSetOdeF(rtm, val)          ((rtm)->odeF = (val))
+#define rtmSetOdeF(rtm, val) ((rtm)->odeF = (val))
 #endif
 
 #ifndef rtmGetOdeY
-# define rtmGetOdeY(rtm)               ((rtm)->odeY)
+#define rtmGetOdeY(rtm) ((rtm)->odeY)
 #endif
 
 #ifndef rtmSetOdeY
-# define rtmSetOdeY(rtm, val)          ((rtm)->odeY = (val))
+#define rtmSetOdeY(rtm, val) ((rtm)->odeY = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateIndices
-# define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
+#define rtmGetPeriodicContStateIndices(rtm) ((rtm)->periodicContStateIndices)
 #endif
 
 #ifndef rtmSetPeriodicContStateIndices
-# define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
+#define rtmSetPeriodicContStateIndices(rtm, val) ((rtm)->periodicContStateIndices = (val))
 #endif
 
 #ifndef rtmGetPeriodicContStateRanges
-# define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
+#define rtmGetPeriodicContStateRanges(rtm) ((rtm)->periodicContStateRanges)
 #endif
 
 #ifndef rtmSetPeriodicContStateRanges
-# define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
+#define rtmSetPeriodicContStateRanges(rtm, val) ((rtm)->periodicContStateRanges = (val))
 #endif
 
 #ifndef rtmGetZCCacheNeedsReset
-# define rtmGetZCCacheNeedsReset(rtm)  ((rtm)->zCCacheNeedsReset)
+#define rtmGetZCCacheNeedsReset(rtm) ((rtm)->zCCacheNeedsReset)
 #endif
 
 #ifndef rtmSetZCCacheNeedsReset
-# define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
+#define rtmSetZCCacheNeedsReset(rtm, val) ((rtm)->zCCacheNeedsReset = (val))
 #endif
 
 #ifndef rtmGetdX
-# define rtmGetdX(rtm)                 ((rtm)->derivs)
+#define rtmGetdX(rtm) ((rtm)->derivs)
 #endif
 
 #ifndef rtmSetdX
-# define rtmSetdX(rtm, val)            ((rtm)->derivs = (val))
+#define rtmSetdX(rtm, val) ((rtm)->derivs = (val))
 #endif
 
 #ifndef rtmGetErrorStatus
-# define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
+#define rtmGetErrorStatus(rtm) ((rtm)->errorStatus)
 #endif
 
 #ifndef rtmSetErrorStatus
-# define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
+#define rtmSetErrorStatus(rtm, val) ((rtm)->errorStatus = (val))
 #endif
 
 #ifndef rtmGetStopRequested
-# define rtmGetStopRequested(rtm)      ((rtm)->Timing.stopRequestedFlag)
+#define rtmGetStopRequested(rtm) ((rtm)->Timing.stopRequestedFlag)
 #endif
 
 #ifndef rtmSetStopRequested
-# define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
+#define rtmSetStopRequested(rtm, val) ((rtm)->Timing.stopRequestedFlag = (val))
 #endif
 
 #ifndef rtmGetStopRequestedPtr
-# define rtmGetStopRequestedPtr(rtm)   (&((rtm)->Timing.stopRequestedFlag))
+#define rtmGetStopRequestedPtr(rtm) (&((rtm)->Timing.stopRequestedFlag))
 #endif
 
 #ifndef rtmGetT
-# define rtmGetT(rtm)                  (rtmGetTPtr((rtm))[0])
+#define rtmGetT(rtm) (rtmGetTPtr((rtm))[0])
 #endif
 
 #ifndef rtmGetTPtr
-# define rtmGetTPtr(rtm)               ((rtm)->Timing.t)
+#define rtmGetTPtr(rtm) ((rtm)->Timing.t)
 #endif
 
 /* Block signals (default storage) */
-typedef struct {
-  real_T u;                            /* '<Root>/Ò»½×ÑÓ³Ù' */
-  real_T u_g;                          /* '<Root>/º½¶Î¼ÆÊýÆ÷' */
-  real_T NProdOut;                     /* '<S188>/NProd Out' */
-  real_T NProdOut_h;                   /* '<S43>/NProd Out' */
-  real_T NProdOut_d;                   /* '<S236>/NProd Out' */
-  real_T NProdOut_c;                   /* '<S91>/NProd Out' */
-  real_T NProdOut_du;                  /* '<S284>/NProd Out' */
-  real_T NProdOut_hy;                  /* '<S140>/NProd Out' */
-  real_T IProdOut;                     /* '<S37>/IProd Out' */
-  real_T IProdOut_o;                   /* '<S85>/IProd Out' */
-  real_T IProdOut_g;                   /* '<S134>/IProd Out' */
-  real_T IProdOut_m;                   /* '<S182>/IProd Out' */
-  real_T IProdOut_k;                   /* '<S230>/IProd Out' */
-  real_T IProdOut_n;                   /* '<S278>/IProd Out' */
-  real_T trigger;                      /* '<Root>/ÊýÑ§¼ÆËã' */
+typedef struct
+{
+  real_T u;           /* '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½' */
+  real_T u_g;         /* '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
+  real_T NProdOut;    /* '<S188>/NProd Out' */
+  real_T NProdOut_h;  /* '<S43>/NProd Out' */
+  real_T NProdOut_d;  /* '<S236>/NProd Out' */
+  real_T NProdOut_c;  /* '<S91>/NProd Out' */
+  real_T NProdOut_du; /* '<S284>/NProd Out' */
+  real_T NProdOut_hy; /* '<S140>/NProd Out' */
+  real_T IProdOut;    /* '<S37>/IProd Out' */
+  real_T IProdOut_o;  /* '<S85>/IProd Out' */
+  real_T IProdOut_g;  /* '<S134>/IProd Out' */
+  real_T IProdOut_m;  /* '<S182>/IProd Out' */
+  real_T IProdOut_k;  /* '<S230>/IProd Out' */
+  real_T IProdOut_n;  /* '<S278>/IProd Out' */
+  real_T trigger;     /* '<Root>/ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½' */
 } B_TrackControl_T;
 
 /* Block states (default storage) for system '<Root>' */
-typedef struct {
-  real_T _DSTATE;                      /* '<Root>/Ò»½×ÑÓ³Ù' */
-  uint32_T _ClkEphState;               /* '<Root>/º½¶Î¼ÆÊýÆ÷' */
-  uint32_T _RstEphState;               /* '<Root>/º½¶Î¼ÆÊýÆ÷' */
-  uint8_T _Count;                      /* '<Root>/º½¶Î¼ÆÊýÆ÷' */
+typedef struct
+{
+  real_T _DSTATE;        /* '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½' */
+  uint32_T _ClkEphState; /* '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
+  uint32_T _RstEphState; /* '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
+  uint8_T _Count;        /* '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½' */
 } DW_TrackControl_T;
 
 /* Continuous states (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S185>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S180>/Filter' */
-  real_T Integrator_CSTATE_j;          /* '<S40>/Integrator' */
-  real_T Filter_CSTATE_i;              /* '<S35>/Filter' */
-  real_T Integrator_CSTATE_m;          /* '<S233>/Integrator' */
-  real_T Filter_CSTATE_k;              /* '<S228>/Filter' */
-  real_T Integrator_CSTATE_b;          /* '<S88>/Integrator' */
-  real_T Filter_CSTATE_m;              /* '<S83>/Filter' */
-  real_T Integrator_CSTATE_f;          /* '<S281>/Integrator' */
-  real_T Filter_CSTATE_f;              /* '<S276>/Filter' */
-  real_T Integrator_CSTATE_e;          /* '<S137>/Integrator' */
-  real_T Filter_CSTATE_o;              /* '<S132>/Filter' */
+typedef struct
+{
+  real_T Integrator_CSTATE;   /* '<S185>/Integrator' */
+  real_T Filter_CSTATE;       /* '<S180>/Filter' */
+  real_T Integrator_CSTATE_j; /* '<S40>/Integrator' */
+  real_T Filter_CSTATE_i;     /* '<S35>/Filter' */
+  real_T Integrator_CSTATE_m; /* '<S233>/Integrator' */
+  real_T Filter_CSTATE_k;     /* '<S228>/Filter' */
+  real_T Integrator_CSTATE_b; /* '<S88>/Integrator' */
+  real_T Filter_CSTATE_m;     /* '<S83>/Filter' */
+  real_T Integrator_CSTATE_f; /* '<S281>/Integrator' */
+  real_T Filter_CSTATE_f;     /* '<S276>/Filter' */
+  real_T Integrator_CSTATE_e; /* '<S137>/Integrator' */
+  real_T Filter_CSTATE_o;     /* '<S132>/Filter' */
 } X_TrackControl_T;
 
 /* State derivatives (default storage) */
-typedef struct {
-  real_T Integrator_CSTATE;            /* '<S185>/Integrator' */
-  real_T Filter_CSTATE;                /* '<S180>/Filter' */
-  real_T Integrator_CSTATE_j;          /* '<S40>/Integrator' */
-  real_T Filter_CSTATE_i;              /* '<S35>/Filter' */
-  real_T Integrator_CSTATE_m;          /* '<S233>/Integrator' */
-  real_T Filter_CSTATE_k;              /* '<S228>/Filter' */
-  real_T Integrator_CSTATE_b;          /* '<S88>/Integrator' */
-  real_T Filter_CSTATE_m;              /* '<S83>/Filter' */
-  real_T Integrator_CSTATE_f;          /* '<S281>/Integrator' */
-  real_T Filter_CSTATE_f;              /* '<S276>/Filter' */
-  real_T Integrator_CSTATE_e;          /* '<S137>/Integrator' */
-  real_T Filter_CSTATE_o;              /* '<S132>/Filter' */
+typedef struct
+{
+  real_T Integrator_CSTATE;   /* '<S185>/Integrator' */
+  real_T Filter_CSTATE;       /* '<S180>/Filter' */
+  real_T Integrator_CSTATE_j; /* '<S40>/Integrator' */
+  real_T Filter_CSTATE_i;     /* '<S35>/Filter' */
+  real_T Integrator_CSTATE_m; /* '<S233>/Integrator' */
+  real_T Filter_CSTATE_k;     /* '<S228>/Filter' */
+  real_T Integrator_CSTATE_b; /* '<S88>/Integrator' */
+  real_T Filter_CSTATE_m;     /* '<S83>/Filter' */
+  real_T Integrator_CSTATE_f; /* '<S281>/Integrator' */
+  real_T Filter_CSTATE_f;     /* '<S276>/Filter' */
+  real_T Integrator_CSTATE_e; /* '<S137>/Integrator' */
+  real_T Filter_CSTATE_o;     /* '<S132>/Filter' */
 } XDot_TrackControl_T;
 
 /* State disabled  */
-typedef struct {
-  boolean_T Integrator_CSTATE;         /* '<S185>/Integrator' */
-  boolean_T Filter_CSTATE;             /* '<S180>/Filter' */
-  boolean_T Integrator_CSTATE_j;       /* '<S40>/Integrator' */
-  boolean_T Filter_CSTATE_i;           /* '<S35>/Filter' */
-  boolean_T Integrator_CSTATE_m;       /* '<S233>/Integrator' */
-  boolean_T Filter_CSTATE_k;           /* '<S228>/Filter' */
-  boolean_T Integrator_CSTATE_b;       /* '<S88>/Integrator' */
-  boolean_T Filter_CSTATE_m;           /* '<S83>/Filter' */
-  boolean_T Integrator_CSTATE_f;       /* '<S281>/Integrator' */
-  boolean_T Filter_CSTATE_f;           /* '<S276>/Filter' */
-  boolean_T Integrator_CSTATE_e;       /* '<S137>/Integrator' */
-  boolean_T Filter_CSTATE_o;           /* '<S132>/Filter' */
+typedef struct
+{
+  boolean_T Integrator_CSTATE;   /* '<S185>/Integrator' */
+  boolean_T Filter_CSTATE;       /* '<S180>/Filter' */
+  boolean_T Integrator_CSTATE_j; /* '<S40>/Integrator' */
+  boolean_T Filter_CSTATE_i;     /* '<S35>/Filter' */
+  boolean_T Integrator_CSTATE_m; /* '<S233>/Integrator' */
+  boolean_T Filter_CSTATE_k;     /* '<S228>/Filter' */
+  boolean_T Integrator_CSTATE_b; /* '<S88>/Integrator' */
+  boolean_T Filter_CSTATE_m;     /* '<S83>/Filter' */
+  boolean_T Integrator_CSTATE_f; /* '<S281>/Integrator' */
+  boolean_T Filter_CSTATE_f;     /* '<S276>/Filter' */
+  boolean_T Integrator_CSTATE_e; /* '<S137>/Integrator' */
+  boolean_T Filter_CSTATE_o;     /* '<S132>/Filter' */
 } XDis_TrackControl_T;
 
 /* Zero-crossing (trigger) state */
-typedef struct {
-  ZCSigState Integrator_Reset_ZCE;     /* '<S185>/Integrator' */
-  ZCSigState Filter_Reset_ZCE;         /* '<S180>/Filter' */
-  ZCSigState Integrator_Reset_ZCE_h;   /* '<S40>/Integrator' */
-  ZCSigState Filter_Reset_ZCE_k;       /* '<S35>/Filter' */
-  ZCSigState Integrator_Reset_ZCE_g;   /* '<S233>/Integrator' */
-  ZCSigState Filter_Reset_ZCE_j;       /* '<S228>/Filter' */
-  ZCSigState Integrator_Reset_ZCE_b;   /* '<S88>/Integrator' */
-  ZCSigState Filter_Reset_ZCE_g;       /* '<S83>/Filter' */
-  ZCSigState Integrator_Reset_ZCE_a;   /* '<S281>/Integrator' */
-  ZCSigState Filter_Reset_ZCE_h;       /* '<S276>/Filter' */
-  ZCSigState Integrator_Reset_ZCE_p;   /* '<S137>/Integrator' */
-  ZCSigState Filter_Reset_ZCE_o;       /* '<S132>/Filter' */
+typedef struct
+{
+  ZCSigState Integrator_Reset_ZCE;   /* '<S185>/Integrator' */
+  ZCSigState Filter_Reset_ZCE;       /* '<S180>/Filter' */
+  ZCSigState Integrator_Reset_ZCE_h; /* '<S40>/Integrator' */
+  ZCSigState Filter_Reset_ZCE_k;     /* '<S35>/Filter' */
+  ZCSigState Integrator_Reset_ZCE_g; /* '<S233>/Integrator' */
+  ZCSigState Filter_Reset_ZCE_j;     /* '<S228>/Filter' */
+  ZCSigState Integrator_Reset_ZCE_b; /* '<S88>/Integrator' */
+  ZCSigState Filter_Reset_ZCE_g;     /* '<S83>/Filter' */
+  ZCSigState Integrator_Reset_ZCE_a; /* '<S281>/Integrator' */
+  ZCSigState Filter_Reset_ZCE_h;     /* '<S276>/Filter' */
+  ZCSigState Integrator_Reset_ZCE_p; /* '<S137>/Integrator' */
+  ZCSigState Filter_Reset_ZCE_o;     /* '<S132>/Filter' */
 } PrevZCX_TrackControl_T;
 
 #ifndef ODE3_INTG
 #define ODE3_INTG
 
 /* ODE3 Integration Data */
-typedef struct {
-  real_T *y;                           /* output */
-  real_T *f[3];                        /* derivatives */
+typedef struct
+{
+  real_T *y;    /* output */
+  real_T *f[3]; /* derivatives */
 } ODE3_IntgData;
 
 #endif
 
 /* External inputs (root inport signals with default storage) */
-typedef struct {
-  real_T position[3];                  /* '<Root>/position' */
-  real_T velocity[3];                  /* '<Root>/velocity' */
-  real_T X[100];                       /* '<Root>/X' */
-  real_T Y[100];                       /* '<Root>/Y' */
-  real_T Z[100];                       /* '<Root>/Z' */
-  real_T V[100];                       /* '<Root>/V' */
-  real_T ect_x_pid[3];                 /* '<Root>/ect_x_pid' */
-  real_T ect_y_pid[3];                 /* '<Root>/ect_y_pid' */
-  real_T ect_z_pid[3];                 /* '<Root>/ect_z_pid' */
-  real_T eat_x_pid[3];                 /* '<Root>/eat_x_pid' */
-  real_T eat_y_pid[3];                 /* '<Root>/eat_y_pid' */
-  real_T eat_z_pid[3];                 /* '<Root>/eat_z_pid' */
-  real_T N;                            /* '<Root>/N' */
+typedef struct
+{
+  real_T position[3];  /* '<Root>/position' */
+  real_T velocity[3];  /* '<Root>/velocity' */
+  real_T X[100];       /* '<Root>/X' */
+  real_T Y[100];       /* '<Root>/Y' */
+  real_T Z[100];       /* '<Root>/Z' */
+  real_T V[100];       /* '<Root>/V' */
+  real_T ect_x_pid[3]; /* '<Root>/ect_x_pid' */
+  real_T ect_y_pid[3]; /* '<Root>/ect_y_pid' */
+  real_T ect_z_pid[3]; /* '<Root>/ect_z_pid' */
+  real_T eat_x_pid[3]; /* '<Root>/eat_x_pid' */
+  real_T eat_y_pid[3]; /* '<Root>/eat_y_pid' */
+  real_T eat_z_pid[3]; /* '<Root>/eat_z_pid' */
+  real_T N;            /* '<Root>/N' */
 } ExtU_TrackControl_T;
 
 /* External outputs (root outports fed by signals with default storage) */
-typedef struct {
-  real_T ax;                           /* '<Root>/ax' */
-  real_T ay;                           /* '<Root>/ay' */
-  real_T az;                           /* '<Root>/az' */
+typedef struct
+{
+  real_T ax; /* '<Root>/ax' */
+  real_T ay; /* '<Root>/ay' */
+  real_T az; /* '<Root>/az' */
 } ExtY_TrackControl_T;
 
 /* Parameters (default storage) */
-struct P_TrackControl_T_ {
-  real_T pid_limit;                    /* Variable: pid_limit
-                                        * Referenced by:
-                                        *   '<S47>/Saturation'
-                                        *   '<S95>/Saturation'
-                                        *   '<S192>/Saturation'
-                                        *   '<S240>/Saturation'
-                                        *   '<S288>/Saturation'
-                                        *   '<S144>/Saturation'
-                                        */
+struct P_TrackControl_T_
+{
+  real_T pid_limit; /* Variable: pid_limit
+                     * Referenced by:
+                     *   '<S47>/Saturation'
+                     *   '<S95>/Saturation'
+                     *   '<S192>/Saturation'
+                     *   '<S240>/Saturation'
+                     *   '<S288>/Saturation'
+                     *   '<S144>/Saturation'
+                     */
   real_T ect_x_InitialConditionForFilter;
-                              /* Mask Parameter: ect_x_InitialConditionForFilter
-                               * Referenced by: '<S180>/Filter'
-                               */
+  /* Mask Parameter: ect_x_InitialConditionForFilter
+   * Referenced by: '<S180>/Filter'
+   */
   real_T eat_x_InitialConditionForFilter;
-                              /* Mask Parameter: eat_x_InitialConditionForFilter
-                               * Referenced by: '<S35>/Filter'
-                               */
+  /* Mask Parameter: eat_x_InitialConditionForFilter
+   * Referenced by: '<S35>/Filter'
+   */
   real_T ect_y_InitialConditionForFilter;
-                              /* Mask Parameter: ect_y_InitialConditionForFilter
-                               * Referenced by: '<S228>/Filter'
-                               */
+  /* Mask Parameter: ect_y_InitialConditionForFilter
+   * Referenced by: '<S228>/Filter'
+   */
   real_T eat_y_InitialConditionForFilter;
-                              /* Mask Parameter: eat_y_InitialConditionForFilter
-                               * Referenced by: '<S83>/Filter'
-                               */
+  /* Mask Parameter: eat_y_InitialConditionForFilter
+   * Referenced by: '<S83>/Filter'
+   */
   real_T ect_z_InitialConditionForFilter;
-                              /* Mask Parameter: ect_z_InitialConditionForFilter
-                               * Referenced by: '<S276>/Filter'
-                               */
+  /* Mask Parameter: ect_z_InitialConditionForFilter
+   * Referenced by: '<S276>/Filter'
+   */
   real_T eat_z_InitialConditionForFilter;
-                              /* Mask Parameter: eat_z_InitialConditionForFilter
-                               * Referenced by: '<S132>/Filter'
-                               */
+  /* Mask Parameter: eat_z_InitialConditionForFilter
+   * Referenced by: '<S132>/Filter'
+   */
   real_T ect_x_InitialConditionForIntegr;
-                              /* Mask Parameter: ect_x_InitialConditionForIntegr
-                               * Referenced by: '<S185>/Integrator'
-                               */
+  /* Mask Parameter: ect_x_InitialConditionForIntegr
+   * Referenced by: '<S185>/Integrator'
+   */
   real_T eat_x_InitialConditionForIntegr;
-                              /* Mask Parameter: eat_x_InitialConditionForIntegr
-                               * Referenced by: '<S40>/Integrator'
-                               */
+  /* Mask Parameter: eat_x_InitialConditionForIntegr
+   * Referenced by: '<S40>/Integrator'
+   */
   real_T ect_y_InitialConditionForIntegr;
-                              /* Mask Parameter: ect_y_InitialConditionForIntegr
-                               * Referenced by: '<S233>/Integrator'
-                               */
+  /* Mask Parameter: ect_y_InitialConditionForIntegr
+   * Referenced by: '<S233>/Integrator'
+   */
   real_T eat_y_InitialConditionForIntegr;
-                              /* Mask Parameter: eat_y_InitialConditionForIntegr
-                               * Referenced by: '<S88>/Integrator'
-                               */
+  /* Mask Parameter: eat_y_InitialConditionForIntegr
+   * Referenced by: '<S88>/Integrator'
+   */
   real_T ect_z_InitialConditionForIntegr;
-                              /* Mask Parameter: ect_z_InitialConditionForIntegr
-                               * Referenced by: '<S281>/Integrator'
-                               */
+  /* Mask Parameter: ect_z_InitialConditionForIntegr
+   * Referenced by: '<S281>/Integrator'
+   */
   real_T eat_z_InitialConditionForIntegr;
-                              /* Mask Parameter: eat_z_InitialConditionForIntegr
-                               * Referenced by: '<S137>/Integrator'
-                               */
-  uint8_T _InitialCount;               /* Mask Parameter: _InitialCount
-                                        * Referenced by: '<Root>/º½¶Î¼ÆÊýÆ÷'
-                                        */
-  real_T _InitialCondition;            /* Expression: 0.0
-                                        * Referenced by: '<Root>/Ò»½×ÑÓ³Ù'
-                                        */
-  real_T _Value;                       /* Expression: 1
-                                        * Referenced by: '<Root>/¸´Î»'
-                                        */
-  real_T Constant_Value;               /* Expression: 100
-                                        * Referenced by: '<Root>/Constant'
-                                        */
+  /* Mask Parameter: eat_z_InitialConditionForIntegr
+   * Referenced by: '<S137>/Integrator'
+   */
+  uint8_T _InitialCount;    /* Mask Parameter: _InitialCount
+                             * Referenced by: '<Root>/ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½'
+                             */
+  real_T _InitialCondition; /* Expression: 0.0
+                             * Referenced by: '<Root>/Ò»ï¿½ï¿½ï¿½Ó³ï¿½'
+                             */
+  real_T _Value;            /* Expression: 1
+                             * Referenced by: '<Root>/ï¿½ï¿½Î»'
+                             */
+  real_T Constant_Value;    /* Expression: 100
+                             * Referenced by: '<Root>/Constant'
+                             */
 };
 
 /* Real-time Model Data Structure */
-struct tag_RTM_TrackControl_T {
+struct tag_RTM_TrackControl_T
+{
   const char_T *errorStatus;
   RTWSolverInfo solverInfo;
   X_TrackControl_T *contStates;
@@ -367,7 +378,8 @@ struct tag_RTM_TrackControl_T {
    * for many of the model attributes such as inputs, outputs,
    * dwork, sample times, etc.
    */
-  struct {
+  struct
+  {
     int_T numContStates;
     int_T numPeriodicContStates;
     int_T numSampTimes;
@@ -378,7 +390,8 @@ struct tag_RTM_TrackControl_T {
    * The following substructure contains information regarding
    * the timing information for the model.
    */
-  struct {
+  struct
+  {
     uint32_T clockTick0;
     uint32_T clockTickH0;
     time_T stepSize0;
@@ -392,9 +405,10 @@ struct tag_RTM_TrackControl_T {
 };
 
 /* Class declaration for model TrackControl */
-class TrackControlModelClass {
+class TrackControlModelClass
+{
   /* public data and function members */
- public:
+public:
   /* model initialize function */
   void initialize();
 
@@ -413,7 +427,7 @@ class TrackControlModelClass {
   /* Root-level structure-based inputs set method */
 
   /* Root inports set method */
-  void setExternalInputs(const ExtU_TrackControl_T* pExtU_TrackControl_T)
+  void setExternalInputs(const ExtU_TrackControl_T *pExtU_TrackControl_T)
   {
     TrackControl_U = *pExtU_TrackControl_T;
   }
@@ -421,16 +435,16 @@ class TrackControlModelClass {
   /* Root-level structure-based outputs get method */
 
   /* Root outports get method */
-  const ExtY_TrackControl_T & getExternalOutputs() const
+  const ExtY_TrackControl_T &getExternalOutputs() const
   {
     return TrackControl_Y;
   }
 
   /* Real-Time Model get method */
-  RT_MODEL_TrackControl_T * getRTM();
+  RT_MODEL_TrackControl_T *getRTM();
 
   /* private data and function members */
- private:
+private:
   /* Tunable parameters */
   static P_TrackControl_T TrackControl_P;
 
@@ -439,8 +453,8 @@ class TrackControlModelClass {
 
   /* Block states */
   DW_TrackControl_T TrackControl_DW;
-  X_TrackControl_T TrackControl_X;     /* Block continuous states */
-  PrevZCX_TrackControl_T TrackControl_PrevZCX;/* Triggered events */
+  X_TrackControl_T TrackControl_X;             /* Block continuous states */
+  PrevZCX_TrackControl_T TrackControl_PrevZCX; /* Triggered events */
 
   /* External inputs */
   ExtU_TrackControl_T TrackControl_U;
@@ -455,7 +469,7 @@ class TrackControlModelClass {
   real_T TrackControl_norm(const real_T x[3]);
 
   /* Continuous states update member function*/
-  void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si );
+  void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si);
 
   /* Derivatives member function */
   void TrackControl_derivatives();
@@ -482,8 +496,8 @@ class TrackControlModelClass {
  * '<S4>'   : 'TrackControl/ect_x'
  * '<S5>'   : 'TrackControl/ect_y'
  * '<S6>'   : 'TrackControl/ect_z'
- * '<S7>'   : 'TrackControl/ÊýÑ§¼ÆËã'
- * '<S8>'   : 'TrackControl/Éú³ÉË÷Òý'
+ * '<S7>'   : 'TrackControl/ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½'
+ * '<S8>'   : 'TrackControl/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
  * '<S9>'   : 'TrackControl/eat_x/Anti-windup'
  * '<S10>'  : 'TrackControl/eat_x/D Gain'
  * '<S11>'  : 'TrackControl/eat_x/Filter'
@@ -774,4 +788,4 @@ class TrackControlModelClass {
  * '<S296>' : 'TrackControl/ect_z/postSat Signal/Forward_Path'
  * '<S297>' : 'TrackControl/ect_z/preSat Signal/Forward_Path'
  */
-#endif                                 /* RTW_HEADER_TrackControl_h_ */
+#endif /* RTW_HEADER_TrackControl_h_ */

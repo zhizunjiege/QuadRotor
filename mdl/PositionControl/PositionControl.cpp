@@ -19,17 +19,21 @@
 
 /*
  * Output and update for atomic system:
- *    '<Root>/±¥ºÍº¯Êý_pitch'
- *    '<Root>/±¥ºÍº¯Êý_roll'
+ *    '<Root>/ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½_pitch'
+ *    '<Root>/ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½_roll'
  */
-void PositionControlModelClass::PositionControl__pitch(real_T rtu_x, real_T
-  rtu_limit, B__pitch_PositionControl_T *localB)
+void PositionControlModelClass::PositionControl__pitch(real_T rtu_x, real_T rtu_limit, B__pitch_PositionControl_T *localB)
 {
-  if (rtu_x > rtu_limit) {
+  if (rtu_x > rtu_limit)
+  {
     localB->x_sat = rtu_limit;
-  } else if (rtu_x < -rtu_limit) {
+  }
+  else if (rtu_x < -rtu_limit)
+  {
     localB->x_sat = -rtu_limit;
-  } else {
+  }
+  else
+  {
     localB->x_sat = rtu_x;
   }
 }
@@ -43,34 +47,30 @@ void PositionControlModelClass::step()
    *  Product: '<Root>/Product'
    */
   PositionControl_Y.delta_omega_F = PositionControl_U.az *
-    PositionControl_U.az_gain;
+                                    PositionControl_U.az_gain;
 
-  /* MATLAB Function: '<Root>/±¥ºÍº¯Êý_roll' incorporates:
+  /* MATLAB Function: '<Root>/ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½_roll' incorporates:
    *  Inport: '<Root>/ax'
    *  Inport: '<Root>/ay'
    *  Inport: '<Root>/des_yaw'
    *  Inport: '<Root>/roll_pitch_limit'
-   *  MATLAB Function: '<Root>/½»²æº¯Êý'
+   *  MATLAB Function: '<Root>/ï¿½ï¿½ï¿½æº¯ï¿½ï¿½'
    */
-  PositionControl__pitch(-0.1020408163265306 * (PositionControl_U.ax * std::sin
-    (PositionControl_U.des_yaw) - PositionControl_U.ay * std::cos
-    (PositionControl_U.des_yaw)), PositionControl_U.roll_pitch_limit,
-    &PositionControl_B.sf__roll);
+  PositionControl__pitch(-0.1020408163265306 * (PositionControl_U.ax * std::sin(PositionControl_U.des_yaw) - PositionControl_U.ay * std::cos(PositionControl_U.des_yaw)), PositionControl_U.roll_pitch_limit,
+                         &PositionControl_B.sf__roll);
 
   /* Outport: '<Root>/des_Roll' */
   PositionControl_Y.des_Roll = PositionControl_B.sf__roll.x_sat;
 
-  /* MATLAB Function: '<Root>/±¥ºÍº¯Êý_pitch' incorporates:
+  /* MATLAB Function: '<Root>/ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½_pitch' incorporates:
    *  Inport: '<Root>/ax'
    *  Inport: '<Root>/ay'
    *  Inport: '<Root>/des_yaw'
    *  Inport: '<Root>/roll_pitch_limit'
-   *  MATLAB Function: '<Root>/½»²æº¯Êý'
+   *  MATLAB Function: '<Root>/ï¿½ï¿½ï¿½æº¯ï¿½ï¿½'
    */
-  PositionControl__pitch(-0.1020408163265306 * (PositionControl_U.ax * std::cos
-    (PositionControl_U.des_yaw) + PositionControl_U.ay * std::sin
-    (PositionControl_U.des_yaw)), PositionControl_U.roll_pitch_limit,
-    &PositionControl_B.sf__pitch);
+  PositionControl__pitch(-0.1020408163265306 * (PositionControl_U.ax * std::cos(PositionControl_U.des_yaw) + PositionControl_U.ay * std::sin(PositionControl_U.des_yaw)), PositionControl_U.roll_pitch_limit,
+                         &PositionControl_B.sf__pitch);
 
   /* Outport: '<Root>/des_Pitch' */
   PositionControl_Y.des_Pitch = PositionControl_B.sf__pitch.x_sat;
@@ -89,11 +89,7 @@ void PositionControlModelClass::terminate()
 }
 
 /* Constructor */
-PositionControlModelClass::PositionControlModelClass():
-  PositionControl_B()
-  ,PositionControl_U()
-  ,PositionControl_Y()
-  ,PositionControl_M()
+PositionControlModelClass::PositionControlModelClass() : PositionControl_B(), PositionControl_U(), PositionControl_Y(), PositionControl_M()
 {
   /* Currently there is no constructor body generated.*/
 }
@@ -105,7 +101,7 @@ PositionControlModelClass::~PositionControlModelClass()
 }
 
 /* Real-Time Model get method */
-RT_MODEL_PositionControl_T * PositionControlModelClass::getRTM()
+RT_MODEL_PositionControl_T *PositionControlModelClass::getRTM()
 {
   return (&PositionControl_M);
 }

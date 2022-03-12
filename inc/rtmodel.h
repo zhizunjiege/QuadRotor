@@ -24,5 +24,5 @@
  *  Includes the appropriate headers when we are using rtModel
  */
 #include "model.h"
-#define GRTINTERFACE                   0
-#endif                                 /* RTW_HEADER_rtmodel_h_ */
+#define GRTINTERFACE 0
+#endif /* RTW_HEADER_rtmodel_h_ */

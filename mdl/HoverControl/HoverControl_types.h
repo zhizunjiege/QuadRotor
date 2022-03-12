@@ -27,4 +27,4 @@ typedef struct P_HoverControl_T_ P_HoverControl_T;
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_HoverControl_T RT_MODEL_HoverControl_T;
 
-#endif                                 /* RTW_HEADER_HoverControl_types_h_ */
+#endif /* RTW_HEADER_HoverControl_types_h_ */

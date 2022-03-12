@@ -27,50 +27,56 @@
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetErrorStatus
-# define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
+#define rtmGetErrorStatus(rtm) ((rtm)->errorStatus)
 #endif
 
 #ifndef rtmSetErrorStatus
-# define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
+#define rtmSetErrorStatus(rtm, val) ((rtm)->errorStatus = (val))
 #endif
 
-/* Block signals for system '<Root>/±¥ºÍº¯Êý_pitch' */
-typedef struct {
-  real_T x_sat;                        /* '<Root>/±¥ºÍº¯Êý_pitch' */
+/* Block signals for system '<Root>/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_pitch' */
+typedef struct
+{
+  real_T x_sat; /* '<Root>/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_pitch' */
 } B__pitch_PositionControl_T;
 
 /* Block signals (default storage) */
-typedef struct {
-  B__pitch_PositionControl_T sf__roll; /* '<Root>/±¥ºÍº¯Êý_roll' */
-  B__pitch_PositionControl_T sf__pitch;/* '<Root>/±¥ºÍº¯Êý_pitch' */
+typedef struct
+{
+  B__pitch_PositionControl_T sf__roll;  /* '<Root>/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_roll' */
+  B__pitch_PositionControl_T sf__pitch; /* '<Root>/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_pitch' */
 } B_PositionControl_T;
 
 /* External inputs (root inport signals with default storage) */
-typedef struct {
-  real_T ax;                           /* '<Root>/ax' */
-  real_T ay;                           /* '<Root>/ay' */
-  real_T az;                           /* '<Root>/az' */
-  real_T roll_pitch_limit;             /* '<Root>/roll_pitch_limit' */
-  real_T des_yaw;                      /* '<Root>/des_yaw' */
-  real_T az_gain;                      /* '<Root>/az_gain' */
+typedef struct
+{
+  real_T ax;               /* '<Root>/ax' */
+  real_T ay;               /* '<Root>/ay' */
+  real_T az;               /* '<Root>/az' */
+  real_T roll_pitch_limit; /* '<Root>/roll_pitch_limit' */
+  real_T des_yaw;          /* '<Root>/des_yaw' */
+  real_T az_gain;          /* '<Root>/az_gain' */
 } ExtU_PositionControl_T;
 
 /* External outputs (root outports fed by signals with default storage) */
-typedef struct {
-  real_T delta_omega_F;                /* '<Root>/delta_omega_F' */
-  real_T des_Roll;                     /* '<Root>/des_Roll' */
-  real_T des_Pitch;                    /* '<Root>/des_Pitch' */
+typedef struct
+{
+  real_T delta_omega_F; /* '<Root>/delta_omega_F' */
+  real_T des_Roll;      /* '<Root>/des_Roll' */
+  real_T des_Pitch;     /* '<Root>/des_Pitch' */
 } ExtY_PositionControl_T;
 
 /* Real-time Model Data Structure */
-struct tag_RTM_PositionControl_T {
+struct tag_RTM_PositionControl_T
+{
   const char_T *errorStatus;
 };
 
 /* Class declaration for model PositionControl */
-class PositionControlModelClass {
+class PositionControlModelClass
+{
   /* public data and function members */
- public:
+public:
   /* model initialize function */
   void initialize();
 
@@ -89,7 +95,7 @@ class PositionControlModelClass {
   /* Root-level structure-based inputs set method */
 
   /* Root inports set method */
-  void setExternalInputs(const ExtU_PositionControl_T* pExtU_PositionControl_T)
+  void setExternalInputs(const ExtU_PositionControl_T *pExtU_PositionControl_T)
   {
     PositionControl_U = *pExtU_PositionControl_T;
   }
@@ -97,16 +103,16 @@ class PositionControlModelClass {
   /* Root-level structure-based outputs get method */
 
   /* Root outports get method */
-  const ExtY_PositionControl_T & getExternalOutputs() const
+  const ExtY_PositionControl_T &getExternalOutputs() const
   {
     return PositionControl_Y;
   }
 
   /* Real-Time Model get method */
-  RT_MODEL_PositionControl_T * getRTM();
+  RT_MODEL_PositionControl_T *getRTM();
 
   /* private data and function members */
- private:
+private:
   /* Block signals */
   B_PositionControl_T PositionControl_B;
 
@@ -119,9 +125,9 @@ class PositionControlModelClass {
   /* Real-Time Model */
   RT_MODEL_PositionControl_T PositionControl_M;
 
-  /* private member function(s) for subsystem '<Root>/±¥ºÍº¯Êý_pitch'*/
+  /* private member function(s) for subsystem '<Root>/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_pitch'*/
   void PositionControl__pitch(real_T rtu_x, real_T rtu_limit,
-    B__pitch_PositionControl_T *localB);
+                              B__pitch_PositionControl_T *localB);
 };
 
 /*-
@@ -139,8 +145,8 @@ class PositionControlModelClass {
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'PositionControl'
- * '<S1>'   : 'PositionControl/½»²æº¯Êý'
- * '<S2>'   : 'PositionControl/±¥ºÍº¯Êý_pitch'
- * '<S3>'   : 'PositionControl/±¥ºÍº¯Êý_roll'
+ * '<S1>'   : 'PositionControl/ï¿½ï¿½ï¿½?ï¿½ï¿½'
+ * '<S2>'   : 'PositionControl/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_pitch'
+ * '<S3>'   : 'PositionControl/ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½_roll'
  */
-#endif                                 /* RTW_HEADER_PositionControl_h_ */
+#endif /* RTW_HEADER_PositionControl_h_ */

@@ -4,43 +4,48 @@
 
 #include "armadillo.h"
 
-typedef struct {
+typedef struct
+{
 	double arm;
 	double mass;
 } RotorDynamicsArgs;
 
-typedef struct {
+typedef struct
+{
 	double roll;
 	double pitch;
 	arma::vec FI;
 	arma::vec MI;
 } RotorDynamicsInputs;
 
-typedef struct {
+typedef struct
+{
 	arma::vec FO;
 	arma::vec MO;
 } RotorDynamicsOutputs;
 
-typedef struct {
+typedef struct
+{
 	/* Empty */
 } RotorDynamicsStates;
 
-class RotorDynamics {
+class RotorDynamics
+{
 public:
 	RotorDynamics();
 	~RotorDynamics();
 
-	void initialize(RotorDynamicsArgs& args);
+	void initialize(RotorDynamicsArgs &args);
 	void step(double stepSize);
 	void terminate();
-	void setInputs(RotorDynamicsInputs& inputs);
-	const RotorDynamicsOutputs& getOutputs();
+	void setInputs(RotorDynamicsInputs &inputs);
+	const RotorDynamicsOutputs &getOutputs();
 
 private:
-	RotorDynamicsArgs* _args;
-	RotorDynamicsInputs* _inputs;
-	RotorDynamicsOutputs* _outputs;
-	RotorDynamicsStates* _states;
+	RotorDynamicsArgs *_args;
+	RotorDynamicsInputs *_inputs;
+	RotorDynamicsOutputs *_outputs;
+	RotorDynamicsStates *_states;
 
 	void resetPtrs();
 	bool initialized;
