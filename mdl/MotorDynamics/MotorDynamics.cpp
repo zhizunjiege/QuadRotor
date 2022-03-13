@@ -140,7 +140,7 @@ void MotorDynamicsModelClass::step()
   }
 
   /* Sum: '<Root>/Sum' incorporates:
-   *  Gain: '<Root>/��λת��'
+   *  Gain: '<Root>/单位转换'
    *  Inport: '<Root>/omega_h'
    *  TransferFcn: '<Root>/Transfer Fcn'
    *  TransferFcn: '<Root>/Transfer Fcn1'
@@ -160,7 +160,7 @@ void MotorDynamicsModelClass::step()
                    MotorDynamics_X.TransferFcn3_CSTATE * MotorDynamics_P._Gain +
                MotorDynamics_U.omega_h;
 
-  /* MATLAB Function: '<Root>/���ͺ���' incorporates:
+  /* MATLAB Function: '<Root>/饱和函数' incorporates:
    *  Inport: '<Root>/rpm_max'
    *  Inport: '<Root>/rpm_min'
    */
@@ -221,7 +221,7 @@ void MotorDynamicsModelClass::step()
     }
   }
 
-  /* End of MATLAB Function: '<Root>/���ͺ���' */
+  /* End of MATLAB Function: '<Root>/饱和函数' */
 
   /* Math: '<Root>/Math Function' */
   rtb_x_sat_idx_0 *= rtb_x_sat_idx_0;
@@ -431,4 +431,16 @@ MotorDynamicsModelClass::~MotorDynamicsModelClass()
 RT_MODEL_MotorDynamics_T *MotorDynamicsModelClass::getRTM()
 {
   return (&MotorDynamics_M);
+}
+
+void MotorDynamicsModelClass::setKt(double Kt)
+{
+  MotorDynamics_P.TransferFcn_A = -Kt;
+  MotorDynamics_P.TransferFcn_C = Kt;
+  MotorDynamics_P.TransferFcn1_A = -Kt;
+  MotorDynamics_P.TransferFcn1_C = Kt;
+  MotorDynamics_P.TransferFcn2_A = -Kt;
+  MotorDynamics_P.TransferFcn2_C = Kt;
+  MotorDynamics_P.TransferFcn3_A = -Kt;
+  MotorDynamics_P.TransferFcn3_C = Kt;
 }

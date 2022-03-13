@@ -19,38 +19,37 @@
 
 /* Block parameters (default storage) */
 P_HoverControl_T HoverControlModelClass::HoverControl_P = {
-  /* Mask Parameter: XController_InitialConditionFor
-   * Referenced by: '<S31>/Filter'
-   */
-  0.0,
+    /* Mask Parameter: XController_InitialConditionFor
+     * Referenced by: '<S31>/Filter'
+     */
+    0.0,
 
-  /* Mask Parameter: YController_InitialConditionFor
-   * Referenced by: '<S79>/Filter'
-   */
-  0.0,
+    /* Mask Parameter: YController_InitialConditionFor
+     * Referenced by: '<S79>/Filter'
+     */
+    0.0,
 
-  /* Mask Parameter: ZController_InitialConditionFor
-   * Referenced by: '<S127>/Filter'
-   */
-  0.0,
+    /* Mask Parameter: ZController_InitialConditionFor
+     * Referenced by: '<S127>/Filter'
+     */
+    0.0,
 
-  /* Mask Parameter: XController_InitialConditionF_k
-   * Referenced by: '<S36>/Integrator'
-   */
-  0.0,
+    /* Mask Parameter: XController_InitialConditionF_k
+     * Referenced by: '<S36>/Integrator'
+     */
+    0.0,
 
-  /* Mask Parameter: YController_InitialConditionF_h
-   * Referenced by: '<S84>/Integrator'
-   */
-  0.0,
+    /* Mask Parameter: YController_InitialConditionF_h
+     * Referenced by: '<S84>/Integrator'
+     */
+    0.0,
 
-  /* Mask Parameter: ZController_InitialConditionF_k
-   * Referenced by: '<S132>/Integrator'
-   */
-  0.0,
+    /* Mask Parameter: ZController_InitialConditionF_k
+     * Referenced by: '<S132>/Integrator'
+     */
+    0.0,
 
-  /* Expression: 100
-   * Referenced by: '<S1>/Constant'
-   */
-  100.0
-};
+    /* Expression: 100
+     * Referenced by: '<S1>/Constant'
+     */
+    100.0};

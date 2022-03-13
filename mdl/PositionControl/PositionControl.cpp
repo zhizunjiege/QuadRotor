@@ -19,8 +19,8 @@
 
 /*
  * Output and update for atomic system:
- *    '<Root>/���ͺ���_pitch'
- *    '<Root>/���ͺ���_roll'
+ *    '<Root>/饱和函数_pitch'
+ *    '<Root>/饱和函数_roll'
  */
 void PositionControlModelClass::PositionControl__pitch(real_T rtu_x, real_T rtu_limit, B__pitch_PositionControl_T *localB)
 {
@@ -49,12 +49,12 @@ void PositionControlModelClass::step()
   PositionControl_Y.delta_omega_F = PositionControl_U.az *
                                     PositionControl_U.az_gain;
 
-  /* MATLAB Function: '<Root>/���ͺ���_roll' incorporates:
+  /* MATLAB Function: '<Root>/饱和函数_roll' incorporates:
    *  Inport: '<Root>/ax'
    *  Inport: '<Root>/ay'
    *  Inport: '<Root>/des_yaw'
    *  Inport: '<Root>/roll_pitch_limit'
-   *  MATLAB Function: '<Root>/���溯��'
+   *  MATLAB Function: '<Root>/交叉函数'
    */
   PositionControl__pitch(-0.1020408163265306 * (PositionControl_U.ax * std::sin(PositionControl_U.des_yaw) - PositionControl_U.ay * std::cos(PositionControl_U.des_yaw)), PositionControl_U.roll_pitch_limit,
                          &PositionControl_B.sf__roll);
@@ -62,12 +62,12 @@ void PositionControlModelClass::step()
   /* Outport: '<Root>/des_Roll' */
   PositionControl_Y.des_Roll = PositionControl_B.sf__roll.x_sat;
 
-  /* MATLAB Function: '<Root>/���ͺ���_pitch' incorporates:
+  /* MATLAB Function: '<Root>/饱和函数_pitch' incorporates:
    *  Inport: '<Root>/ax'
    *  Inport: '<Root>/ay'
    *  Inport: '<Root>/des_yaw'
    *  Inport: '<Root>/roll_pitch_limit'
-   *  MATLAB Function: '<Root>/���溯��'
+   *  MATLAB Function: '<Root>/交叉函数'
    */
   PositionControl__pitch(-0.1020408163265306 * (PositionControl_U.ax * std::cos(PositionControl_U.des_yaw) + PositionControl_U.ay * std::sin(PositionControl_U.des_yaw)), PositionControl_U.roll_pitch_limit,
                          &PositionControl_B.sf__pitch);

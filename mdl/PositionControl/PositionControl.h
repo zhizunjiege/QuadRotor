@@ -34,17 +34,17 @@
 #define rtmSetErrorStatus(rtm, val) ((rtm)->errorStatus = (val))
 #endif
 
-/* Block signals for system '<Root>/���?���_pitch' */
+/* Block signals for system '<Root>/饱和函数_pitch' */
 typedef struct
 {
-  real_T x_sat; /* '<Root>/���?���_pitch' */
+  real_T x_sat; /* '<Root>/饱和函数_pitch' */
 } B__pitch_PositionControl_T;
 
 /* Block signals (default storage) */
 typedef struct
 {
-  B__pitch_PositionControl_T sf__roll;  /* '<Root>/���?���_roll' */
-  B__pitch_PositionControl_T sf__pitch; /* '<Root>/���?���_pitch' */
+  B__pitch_PositionControl_T sf__roll;  /* '<Root>/饱和函数_roll' */
+  B__pitch_PositionControl_T sf__pitch; /* '<Root>/饱和函数_pitch' */
 } B_PositionControl_T;
 
 /* External inputs (root inport signals with default storage) */
@@ -125,7 +125,7 @@ private:
   /* Real-Time Model */
   RT_MODEL_PositionControl_T PositionControl_M;
 
-  /* private member function(s) for subsystem '<Root>/���?���_pitch'*/
+  /* private member function(s) for subsystem '<Root>/饱和函数_pitch'*/
   void PositionControl__pitch(real_T rtu_x, real_T rtu_limit,
                               B__pitch_PositionControl_T *localB);
 };
@@ -145,8 +145,8 @@ private:
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'PositionControl'
- * '<S1>'   : 'PositionControl/���?��'
- * '<S2>'   : 'PositionControl/���?���_pitch'
- * '<S3>'   : 'PositionControl/���?���_roll'
+ * '<S1>'   : 'PositionControl/交叉函数'
+ * '<S2>'   : 'PositionControl/饱和函数_pitch'
+ * '<S3>'   : 'PositionControl/饱和函数_roll'
  */
 #endif /* RTW_HEADER_PositionControl_h_ */

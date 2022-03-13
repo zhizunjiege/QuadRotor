@@ -230,7 +230,7 @@ struct P_MotorDynamics_T_
                           * Referenced by: '<Root>/Transfer Fcn3'
                           */
   real_T _Gain;          /* Expression: 30/3.1415926535
-                          * Referenced by: '<Root>/��λת��'
+                          * Referenced by: '<Root>/单位转换'
                           */
 };
 
@@ -322,6 +322,8 @@ public:
   /* Real-Time Model get method */
   RT_MODEL_MotorDynamics_T *getRTM();
 
+  void setKt(double Kt);
+
   /* private data and function members */
 private:
   /* Tunable parameters */
@@ -359,6 +361,6 @@ private:
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'MotorDynamics'
- * '<S1>'   : 'MotorDynamics/���ͺ���'
+ * '<S1>'   : 'MotorDynamics/饱和函数'
  */
 #endif /* RTW_HEADER_MotorDynamics_h_ */

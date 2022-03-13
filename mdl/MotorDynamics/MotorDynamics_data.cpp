@@ -60,6 +60,6 @@ P_MotorDynamics_T MotorDynamicsModelClass::MotorDynamics_P = {
     20.0,
 
     /* Expression: 30/3.1415926535
-     * Referenced by: '<Root>/��λת��'
+     * Referenced by: '<Root>/单位转换'
      */
     9.5492965857866583};

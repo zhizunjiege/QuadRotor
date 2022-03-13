@@ -149,8 +149,8 @@
 /* Block signals (default storage) */
 typedef struct
 {
-  real_T u;           /* '<Root>/һ���ӳ�' */
-  real_T u_g;         /* '<Root>/���μ�����' */
+  real_T u;           /* '<Root>/一阶延迟' */
+  real_T u_g;         /* '<Root>/航段计数器' */
   real_T NProdOut;    /* '<S188>/NProd Out' */
   real_T NProdOut_h;  /* '<S43>/NProd Out' */
   real_T NProdOut_d;  /* '<S236>/NProd Out' */
@@ -163,16 +163,16 @@ typedef struct
   real_T IProdOut_m;  /* '<S182>/IProd Out' */
   real_T IProdOut_k;  /* '<S230>/IProd Out' */
   real_T IProdOut_n;  /* '<S278>/IProd Out' */
-  real_T trigger;     /* '<Root>/��ѧ����' */
+  real_T trigger;     /* '<Root>/数学计算' */
 } B_TrackControl_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct
 {
-  real_T _DSTATE;        /* '<Root>/һ���ӳ�' */
-  uint32_T _ClkEphState; /* '<Root>/���μ�����' */
-  uint32_T _RstEphState; /* '<Root>/���μ�����' */
-  uint8_T _Count;        /* '<Root>/���μ�����' */
+  real_T _DSTATE;        /* '<Root>/一阶延迟' */
+  uint32_T _ClkEphState; /* '<Root>/航段计数器' */
+  uint32_T _RstEphState; /* '<Root>/航段计数器' */
+  uint8_T _Count;        /* '<Root>/航段计数器' */
 } DW_TrackControl_T;
 
 /* Continuous states (default storage) */
@@ -342,13 +342,13 @@ struct P_TrackControl_T_
    * Referenced by: '<S137>/Integrator'
    */
   uint8_T _InitialCount;    /* Mask Parameter: _InitialCount
-                             * Referenced by: '<Root>/���μ�����'
+                             * Referenced by: '<Root>/航段计数器'
                              */
   real_T _InitialCondition; /* Expression: 0.0
-                             * Referenced by: '<Root>/һ���ӳ�'
+                             * Referenced by: '<Root>/一阶延迟'
                              */
   real_T _Value;            /* Expression: 1
-                             * Referenced by: '<Root>/��λ'
+                             * Referenced by: '<Root>/复位'
                              */
   real_T Constant_Value;    /* Expression: 100
                              * Referenced by: '<Root>/Constant'
@@ -496,8 +496,8 @@ private:
  * '<S4>'   : 'TrackControl/ect_x'
  * '<S5>'   : 'TrackControl/ect_y'
  * '<S6>'   : 'TrackControl/ect_z'
- * '<S7>'   : 'TrackControl/��ѧ����'
- * '<S8>'   : 'TrackControl/��������'
+ * '<S7>'   : 'TrackControl/数学计算'
+ * '<S8>'   : 'TrackControl/生成索引'
  * '<S9>'   : 'TrackControl/eat_x/Anti-windup'
  * '<S10>'  : 'TrackControl/eat_x/D Gain'
  * '<S11>'  : 'TrackControl/eat_x/Filter'
