@@ -443,8 +443,12 @@ public:
   /* Real-Time Model get method */
   RT_MODEL_TrackControl_T *getRTM();
 
+  void resetCounter();
+
   /* private data and function members */
 private:
+  bool needReset;
+
   /* Tunable parameters */
   static P_TrackControl_T TrackControl_P;
 

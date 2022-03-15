@@ -914,6 +914,9 @@ void TrackControlModelClass::step()
       }
     }
   } /* end MajorTimeStep */
+
+  if (needReset)
+    TrackControl_P._Value = 0;
 }
 
 /* Derivatives for root system: '<Root>' */
@@ -1065,6 +1068,9 @@ void TrackControlModelClass::initialize()
   /* InitializeConditions for Integrator: '<S132>/Filter' */
   TrackControl_X.Filter_CSTATE_o =
       TrackControl_P.eat_z_InitialConditionForFilter;
+
+  TrackControl_P._Value = 0;
+  needReset = false;
 }
 
 /* Model terminate function */
@@ -1089,4 +1095,10 @@ TrackControlModelClass::~TrackControlModelClass()
 RT_MODEL_TrackControl_T *TrackControlModelClass::getRTM()
 {
   return (&TrackControl_M);
+}
+
+void TrackControlModelClass::resetCounter()
+{
+  TrackControl_P._Value = 1;
+  needReset = true;
 }

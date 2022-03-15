@@ -63,17 +63,21 @@ enum FlightMode
 typedef struct
 {
 	FlightMode mode;
+	double desYaw;
 
 	vec target;
 
 	uint_T N;
-	vec *track;
-	double *speed;
+	double *X;
+	double *Y;
+	double *Z;
+	double *V;
 } QuadRotorInputs;
 
 typedef struct
 {
 	vec Xe;
+	vec Ve;
 	vec Vb;
 	vec Omega;
 	vec Euler;
@@ -87,6 +91,8 @@ typedef struct
 {
 	double omegaH;
 	double azGain;
+	vec Fb;
+	vec Mb;
 } QuadRotorStates;
 
 class QuadRotor
@@ -102,6 +108,15 @@ public:
 	const QuadRotorOutputs &getOutputs();
 
 private:
+	void internalStep(double stepSize);
+
+	const static double maxStepSize;
+
+	QuadRotorArgs *_args;
+	QuadRotorInputs *_inputs;
+	QuadRotorOutputs *_outputs;
+	QuadRotorStates *_states;
+
 	TrackControlModelClass *_track;
 	HoverControlModelClass *_hover;
 	PositionControlModelClass *_position;
@@ -110,12 +125,14 @@ private:
 	RotorDynamics *_rotor;
 	Kinetics *_kin;
 
-	QuadRotorArgs *_args;
-	QuadRotorInputs *_inputs;
-	QuadRotorOutputs *_outputs;
-	QuadRotorStates *_states;
-
 	void resetPtrs();
 	bool initialized;
 	bool terminated;
+
+	ExtU_TrackControl_T *_trackInputs;
+	ExtU_HoverControl_T *_hoverInputs;
+	ExtU_PositionControl_T *_positionInputs;
+	ExtU_AttitudeControl_T *_attitudeInputs;
+	ExtU_MotorDynamics_T *_motorInputs;
+	RotorDynamicsInputs *_rotorInputs;
 };

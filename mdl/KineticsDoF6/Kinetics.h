@@ -1,7 +1,7 @@
 #ifndef _KINETICS_H_
 #define _KINETICS_H_
 
-#include "armadillo"
+#include "armadillo.h"
 
 //刚体六自由度动力学解算基类
 //===================================
